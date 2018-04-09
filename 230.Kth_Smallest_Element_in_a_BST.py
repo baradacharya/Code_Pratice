@@ -6,28 +6,27 @@ class TreeNode(object):
         self.right = None
 
 class Solution(object):
-
-    def pathSum(self, root, sum):
+    def kthSmallest(self, root, k):
         """
         :type root: TreeNode
-        :type sum: int
-        :rtype: List[List[int]]
+        :type k: int
+        :rtype: int
         """
-        ans = []
-        #list is a mutable object so pass list
-        self.dfs(root, sum, [], ans)
-        return ans
+        self.count = 0
+        self.res = 0
+        if not root: return 0
+         #IMPORTANT To pass argument by call by reference a list need to be passed. because list is a mutable object
+        self.inorder(root,k)
+        return self.res
 
-    def dfs(self, root, sum, path, ans):
-        if not root:
+    def inorder(self,root,k):
+        if not root: return
+        self.inorder(root.left,k)
+        self.count += 1
+        if self.count == k :
+            self.res = root.val
             return
-
-        if root.left == None and root.right == None and sum == root.val:
-            ans.append(path + [root.val])
-            return
-
-        self.dfs(root.left, sum - root.val, path + [root.val], ans) #imp tric path+[] which will back propogate
-        self.dfs(root.right, sum - root.val, path + [root.val], ans)
+        self.inorder(root.right,k)
 
     def create_Tree(self, ind, nums):
         """
@@ -51,9 +50,7 @@ class Solution(object):
         self.pre_order_traversal(root.left)
         self.pre_order_traversal(root.right)
 
-s =Solution()
-
-tree = s.create_Tree(0,[5,4,8,11,None,13,4,7,2,None,None,5,1])
+s = Solution()
+tree = s.create_Tree(0,[2,1])
 s.pre_order_traversal(tree)
-res = s.pathSum(tree,22)
-print res
+print s.kthSmallest(tree,1)

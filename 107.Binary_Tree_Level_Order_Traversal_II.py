@@ -12,8 +12,9 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         if not root: return []
-        res = []
-        queue = []
+        from collections import deque
+        res = deque()
+        queue = deque()
         res.append([root.val])
         queue.append(root)
         while 1:
@@ -22,7 +23,7 @@ class Solution(object):
                 break
             cur_res = []
             while count:
-                temp = queue.pop(0)
+                temp = queue.popleft()
                 count -= 1
                 if temp.left:
                     queue.append(temp.left)
@@ -30,8 +31,9 @@ class Solution(object):
                 if temp.right:
                     queue.append(temp.right)
                     cur_res.append(temp.right.val)
-            if len(cur_res): res.append(cur_res)
+            if len(cur_res): res.appendleft(cur_res)
         return res
+
     def create_Tree(self, ind, nums):
         """
         :param nums: list[int]
@@ -48,14 +50,13 @@ class Solution(object):
         root.right = self.create_Tree(right_ind, nums)
         return root
 
-    def pre_order_traversal(self,root):
+    def pre_order_traversal(self, root):
         if not root: return None
         print (root.val)
         self.pre_order_traversal(root.left)
         self.pre_order_traversal(root.right)
 
 s = Solution()
-# t =s.create_Tree(0,[3,9,20,None,None,15,7])
-t = s.create_Tree(0,[1,2,3,4,5])
+t = s.create_Tree(0, [3, 9, 20, None, None, 15, 7])
 s.pre_order_traversal(t)
 print s.levelOrder(t)

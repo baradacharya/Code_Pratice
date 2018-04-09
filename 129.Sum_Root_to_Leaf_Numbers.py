@@ -1,33 +1,36 @@
 # Definition for a binary tree node.
-class TreeNode(object):
+class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
-class Solution(object):
-
-    def pathSum(self, root, sum):
+class Solution:
+    def sumNumbers(self, root):
         """
         :type root: TreeNode
-        :type sum: int
-        :rtype: List[List[int]]
+        :rtype: int
         """
-        ans = []
-        #list is a mutable object so pass list
-        self.dfs(root, sum, [], ans)
-        return ans
+        if not root: return root
+        paths = []
+        path = []
+        self.BFS(root,paths,path)
+        sum = 0
+        for path in paths:
+            num = 0
+            for i in path:
+                num = num *10 + i
+            sum += num
+        return sum
 
-    def dfs(self, root, sum, path, ans):
-        if not root:
+    def BFS(self,root,paths,path):
+        if not root: return root
+        if root.left == None and root.right == None:
+            paths.append(path + [root.val])
             return
-
-        if root.left == None and root.right == None and sum == root.val:
-            ans.append(path + [root.val])
-            return
-
-        self.dfs(root.left, sum - root.val, path + [root.val], ans) #imp tric path+[] which will back propogate
-        self.dfs(root.right, sum - root.val, path + [root.val], ans)
+        self.BFS(root.left,paths, path + [root.val])
+        self.BFS(root.right,paths, path + [root.val])
+        return
 
     def create_Tree(self, ind, nums):
         """
@@ -45,15 +48,13 @@ class Solution(object):
         root.right = self.create_Tree(right_ind, nums)
         return root
 
-    def pre_order_traversal(self,root):
+    def pre_order_traversal(self, root):
         if not root: return None
         print (root.val)
         self.pre_order_traversal(root.left)
         self.pre_order_traversal(root.right)
 
-s =Solution()
+s = Solution()
+t = s.create_Tree(0, [0,1,3])
+print s.sumNumbers(t)
 
-tree = s.create_Tree(0,[5,4,8,11,None,13,4,7,2,None,None,5,1])
-s.pre_order_traversal(tree)
-res = s.pathSum(tree,22)
-print res

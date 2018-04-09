@@ -10,7 +10,10 @@ class Solution(object):
         :return: TreeNode
         """
         if ind >= len(nums): return None
-        root = TreeNode(nums[ind])
+        if nums[ind] == None:
+            return None
+        else:
+            root = TreeNode(nums[ind])
         left_ind = 2 * ind + 1
         right_ind = 2 * ind + 2
         root.left = self.create_Tree(left_ind, nums)

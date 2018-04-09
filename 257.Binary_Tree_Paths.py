@@ -15,7 +15,9 @@ class Solution(object):
         if not root:
             return res
         self.bfspath(root, [], res)
+        # return res
         res_str = []
+        #for putting into format
         for list_ in res:
             s = ""
             s += str(list_[0])

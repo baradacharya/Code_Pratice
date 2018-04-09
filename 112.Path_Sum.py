@@ -14,8 +14,7 @@ class Solution(object):
         """
         if not root:
             return False
-        if(root.left == None and root.right == None): #LeafNode
-            if root.val == sum:
-                return True
+        if root.left == None and root.right == None and root.val == sum: #LeafNode
+            return True
         return self.hasPathSum(root.left,sum-root.val) or self.hasPathSum(root.right, sum - root.val)
 

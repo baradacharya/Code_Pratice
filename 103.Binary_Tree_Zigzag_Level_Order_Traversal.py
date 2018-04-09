@@ -1,12 +1,12 @@
 # Definition for a binary tree node.
-class TreeNode(object):
+class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
-class Solution(object):
-    def levelOrder(self, root):
+class Solution:
+    def zigzagLevelOrder(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[int]]
@@ -16,6 +16,7 @@ class Solution(object):
         queue = []
         res.append([root.val])
         queue.append(root)
+        flag  = True
         while 1:
             count = len(queue)
             if count == 0:
@@ -30,8 +31,16 @@ class Solution(object):
                 if temp.right:
                     queue.append(temp.right)
                     cur_res.append(temp.right.val)
-            if len(cur_res): res.append(cur_res)
-        return res
+            if len(cur_res):
+                if flag:
+                    cur_res.reverse()
+                    res.append(cur_res)
+                    flag = False
+                else:
+                    res.append(cur_res)
+                    flag = True
+        return
+
     def create_Tree(self, ind, nums):
         """
         :param nums: list[int]
@@ -48,14 +57,13 @@ class Solution(object):
         root.right = self.create_Tree(right_ind, nums)
         return root
 
-    def pre_order_traversal(self,root):
+    def pre_order_traversal(self, root):
         if not root: return None
         print (root.val)
         self.pre_order_traversal(root.left)
         self.pre_order_traversal(root.right)
 
 s = Solution()
-# t =s.create_Tree(0,[3,9,20,None,None,15,7])
-t = s.create_Tree(0,[1,2,3,4,5])
+t =s.create_Tree(0,[3,9,20,None,None,15,7])
 s.pre_order_traversal(t)
-print s.levelOrder(t)
+print s.zigzagLevelOrder(t)

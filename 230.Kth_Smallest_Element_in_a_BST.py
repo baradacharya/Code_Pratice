@@ -44,13 +44,6 @@ class Solution(object):
         root.right = self.create_Tree(right_ind, nums)
         return root
 
-    def pre_order_traversal(self,root):
-        if not root: return None
-        print (root.val)
-        self.pre_order_traversal(root.left)
-        self.pre_order_traversal(root.right)
-
 s = Solution()
 tree = s.create_Tree(0,[2,1])
-s.pre_order_traversal(tree)
 print s.kthSmallest(tree,1)

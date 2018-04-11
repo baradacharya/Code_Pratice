@@ -371,7 +371,7 @@
 # print minimumTotal([[2],[3,4],[6,5,7],[4,1,8,3]])
 
 #312. Burst Balloons
-#https://leetcode.com/problems/burst-balloons/discuss/76263/My-readable-Python-~500ms-accepted-solution-with-explanation
+# https://leetcode.com/problems/burst-balloons/discuss/76263/My-readable-Python-~500ms-accepted-solution-with-explanation
 #Interval Problem like largest palindrome
 #https://leetcode.com/problems/burst-balloons/discuss/76230/C++-dp-detailed-explanation
 """

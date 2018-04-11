@@ -10,6 +10,7 @@ class Solution(object):
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
+        ##using extra space
         # l = 0
         # r = 0
         # res = []
@@ -28,6 +29,7 @@ class Solution(object):
         #     r += 1
         # print res
 
+        #not using extra space, start from last
         while m > 0 and n > 0:
             if nums1[m-1] > nums2[n-1]:
                 nums1[m + n -1] = nums1[m-1]

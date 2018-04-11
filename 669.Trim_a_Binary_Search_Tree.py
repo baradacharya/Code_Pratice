@@ -32,7 +32,10 @@ class Solution(object):
         :return: TreeNode
         """
         if ind >= len(nums): return None
-        root = TreeNode(nums[ind])
+        if nums[ind] == None:
+            return None
+        else:
+            root = TreeNode(nums[ind])
         left_ind = 2 * ind + 1
         right_ind = 2 * ind + 2
         root.left = self.create_Tree(left_ind, nums)
@@ -44,6 +47,7 @@ class Solution(object):
         print (root.val)
         self.pre_order_traversal(root.left)
         self.pre_order_traversal(root.right)
+        
 s = Solution()
 tree = s.create_Tree(0,[1,0,2])
 s.pre_order_traversal(tree)

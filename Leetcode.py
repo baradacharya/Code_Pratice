@@ -90,19 +90,6 @@
 # l = topKFrequent([1,1,1,2,2,3],2)
 # print(l)
 
-# #49. Group Anagrams
-# #Two strings are anagrams if and only if their sorted strings are equal.
-# import collections
-#
-# def groupAnagrams(strs):
-#     ans = collections.defaultdict(list)
-#     for s in strs:
-#         ans[tuple(sorted(s))].append(s)
-#     return ans.values()
-#
-# l = groupAnagrams(["eat","tea","tan","ate","nat","bat"])
-# print(l)
-
 # 6.
 # class Solution(object):
 #     def canFinish(self, numCourses, prerequisites):

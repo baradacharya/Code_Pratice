@@ -28,7 +28,7 @@ class Solution(object):
         lsum = max(0,self.maxSum_rec(root.left))
         rsum = max(0,self.maxSum_rec(root.right))
         #lsum,rsum >= 0
-        self.maximum = max(self.maximum,lsum + rsum+ root.val) #if the current root is the peak of path
+        self.maximum = max(self.maximum,lsum + rsum+ root.val) #if the current root is the peak of path,update maximum variable
         return max(lsum,rsum)+ root.val #if current root is not the peak,root is along the path
 
     def create_Tree(self, ind, nums):

@@ -21,8 +21,8 @@ class Solution(object):
             cur_node,depth = stack.pop()
             if depth not in right_side_view:
                 right_side_view[depth] = cur_node.val
-            if cur_node.left: stack.append((cur_node.left,depth+1))
-            if cur_node.right: stack.append((cur_node.right, depth + 1))
+            if cur_node.left:  stack.append((cur_node.left, depth+1))
+            if cur_node.right: stack.append((cur_node.right,depth+1))
         res = [right_side_view[val] for val in right_side_view]
         return res
 
@@ -39,8 +39,8 @@ class Solution(object):
         while queue:
             cur_node,depth = queue.popleft()
             right_side_view[depth] = cur_node.val #will store rightmost value of each level by overwriting
-            if cur_node.left: queue.append((cur_node.left,depth+1))
-            if cur_node.right: queue.append((cur_node.right, depth + 1))
+            if cur_node.left:  queue.append((cur_node.left, depth+1))
+            if cur_node.right: queue.append((cur_node.right,depth+1))
         res = [right_side_view[val] for val in right_side_view]
         return res
 

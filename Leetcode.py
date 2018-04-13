@@ -257,26 +257,6 @@
 #d = compress(["a","a","b","b","c","c","c"])
 # d = compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"])
 # print (d)
-# def decodeString( s):
-#     stack = []
-#     stack.append(["", 1])
-#     num = ""
-#     for ch in s:
-#         if ch.isdigit():
-#             num += ch
-#         elif ch == '[':
-#             stack.append(["", int(num)])
-#             num = ""
-#         elif ch == ']':
-#             st, k = stack.pop()
-#             stack[-1][0] += st * k
-#         else:
-#             stack[-1][0] += ch
-#     return stack[0][0]
-# d = decodeString("3[a]2[bc]")
-# d1 = decodeString("3[a2[c]]")
-
-#any
 
 #79. Word Search
 class solution:

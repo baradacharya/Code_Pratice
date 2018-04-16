@@ -14,17 +14,17 @@ class Solution(object):
         if head == None:
             return None
 
-        list_dict  ={}
+        list_dict  = {}
         node = head
         #copy nodes of linkedlist
         while node != None:
             list_dict[node] = RandomListNode(node.label)
             node = node.next
         #assign next and random pointers
-        # node = head
-        # while node != None:
         for node in list_dict:
-            list_dict[node].next = list_dict[node.next]
-            list_dict[node].random = list_dict[node.random]
+            if node.next:
+                list_dict[node].next = list_dict[node.next]
+            if node.random:
+                list_dict[node].random = list_dict[node.random]
             node = node.next
         return list_dict[head]

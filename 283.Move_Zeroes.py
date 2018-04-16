@@ -19,6 +19,7 @@ T:O(n), S:O(1)
 def swap(s1, s2):
     return s2, s1
 
+#two pointer
 class Solution(object):
     def moveZeroes(self, nums):
         """
@@ -28,12 +29,13 @@ class Solution(object):
         last_nonzero  = 0
         for i in range(len(nums)):
             if nums[i] != 0 :
-                # temp = nums[last_nonzero]
+                #swap numbers.
+                temp = nums[last_nonzero]
                 nums[last_nonzero] = nums[i]
-                nums[i] = 0
+                nums[i] = temp
                 last_nonzero += 1
 
 s = Solution()
-nums  = [0, 1, 0, 3, 12]
+nums  = [1, 0, 3, 12]
 s.moveZeroes(nums)
 print nums

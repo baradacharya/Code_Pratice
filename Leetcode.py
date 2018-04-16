@@ -13,45 +13,6 @@
 #     return ans
 # findRestaurant(["Shogun","Tapioca Express","Burger King","KFC"],["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"])
 
-# #56. Merge Intervals
-#
-# def merge(intervals):
-#     intervals.sort(key = lambda l:l[0])
-#
-#     merged = []
-#     for interval in intervals:
-#         # if the list of merged intervals is empty or if the current
-#         # interval does not overlap with the previous, simply append it.
-#         if not merged or merged[-1][1] < interval[0]:
-#             merged.append(interval)
-#         else:
-#             # otherwise, there is overlap, so we merge the current and previous
-#             # intervals.
-#             merged[-1][1] = max(merged[-1][1], interval[1])
-#
-#     return merged
-# #
-# #merge([[2,6],[8,10],[1,3],[15,18]])
-# merge([[1,3],[2,6],[8,10],[15,18]])
-
-# #347. Top K Frequent Elements
-# import collections
-# def topKFrequent(nums, k):
-#     """
-#     :type nums: List[int]
-#     :type k: int
-#     :rtype: List[int]
-#     """
-#     # Use Counter to extract the top k frequent elements
-#     # most_common(k) return a list of tuples, where the first item of the tuple is the element,
-#     # and the second item of the tuple is the count
-#     # Thus, the built-in zip function could be used to extract the first item from the tuples
-#     counts = collections.Counter(nums)
-#     n = counts.most_common(k)
-#     return zip(*collections.Counter(nums).most_common(k))[0]
-# l = topKFrequent([1,1,1,2,2,3],2)
-# print(l)
-
 # 6.
 # class Solution(object):
 #     def canFinish(self, numCourses, prerequisites):

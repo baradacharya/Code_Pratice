@@ -8,7 +8,7 @@ class Solution(object):
         """
         m = len(word1)
         n = len(word2)
-
+        #Trick n+1 and m+1
         DP = [[0 for i in range(n + 1)] for j in range(m + 1)]
 
         #either one string present
@@ -27,3 +27,5 @@ class Solution(object):
                     #dp[i][j-1] insert
                     DP[i][j] = min(DP[i-1][j - 1],DP[i][j - 1],DP[i-1][j]) + 1
         return DP[-1][-1]
+s = Solution()
+s.minDistance("barada","annada")

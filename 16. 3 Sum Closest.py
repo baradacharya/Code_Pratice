@@ -16,7 +16,7 @@ class Solution(object):
         closest =  nums[0] + nums[1] + nums[2]
 
         for i in range(len(nums)-2):
-            if i>0 and nums[i] == nums[i-1]:
+            if i>0 and nums[i] == nums[i-1]: #skip pointer with same value
                 continue
 
             l  = i+1

@@ -17,7 +17,7 @@ class Solution(object):
         r  = len(height)-1
         while(l<r):
             maxArea = max(maxArea, min(height[l],height[r])*(r-l))
-            if height[l] < height[r]:
+            if height[l] < height[r]: #update the pointer with the lowest height
                 l += 1
             else:
                 r -= 1

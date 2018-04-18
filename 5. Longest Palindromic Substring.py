@@ -21,6 +21,7 @@ class Solution(object):
                 index = i
                 DP[i][i+1] = 1
         for length in range(3,N+1):
+            #when len = N, -> i = 0 range(1), j = N-1 => N-length+1 = N-N+1 = 1
             for i in range(N-length+1):
                 j = i + length - 1
                 if DP[i+1][j-1] and s[i] == s[j]:

@@ -12,6 +12,7 @@ class Solution(object):
             if(nums[j] != val):
                 nums[i] = nums[j]
                 i += 1
+            #else: continue
         return i
 
 s = Solution()

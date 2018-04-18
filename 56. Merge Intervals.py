@@ -1,5 +1,4 @@
-# merge([[2,6],[8,10],[1,3],[15,18]])
-# merge([[1,3],[2,6],[8,10],[15,18]])
+
 # Definition for an interval.
 class Interval(object):
     def __init__(self, s=0, e=0):
@@ -16,3 +15,6 @@ class Solution(object):
             else: #can merge
                 merged[-1].end = max(interval.end,merged[-1].end)
         return merged
+s = Solution()
+print s.merge([[2,6],[8,10],[1,3],[15,18]])
+print s.merge([[1,3],[2,6],[8,10],[15,18]])

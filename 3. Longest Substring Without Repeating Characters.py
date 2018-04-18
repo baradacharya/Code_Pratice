@@ -11,11 +11,11 @@ class Solution(object):
         chardict = dict()
         i,max_len = 0,0
         for j in range(len(s)):
-            if s[j] in chardict and chardict[s[j]]>= i: #check char within star and end pointer
+            if s[j] in chardict and chardict[s[j]]>= i: #check hether char is after the  start pointer
                 i = chardict[s[j]] + 1 #move start pointer to the next position of repeating char
             else:
                  max_len = max(max_len,j-i+1)
-            chardict[s[j]] = j #store location of char in hashmap
+            chardict[s[j]] = j #store/update current location of char in hashmap
         return max_len
 s = Solution()
 print s.lengthOfLongestSubstring("tmmzuxt")

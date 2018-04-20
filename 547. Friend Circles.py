@@ -9,6 +9,7 @@ class Solution(object):
         ans  = 0
         for i in range(len(M)):
             if i not in visited:
+                visited.add(i)
                 self.DFS(i,visited,M)
                 ans += 1
         return ans

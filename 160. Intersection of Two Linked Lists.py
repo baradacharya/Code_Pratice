@@ -1,3 +1,9 @@
+"""
+Two pointers method
+So if two linkedlist intersects, the meeting point in second iteration must be the intersection point.
+If the two linked lists have no intersection at all,
+then the meeting pointer in second iteration must be the tail node of both lists, which is null
+"""
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -14,15 +20,11 @@ class Solution(object):
             return None
 
         p,q = headA,headB
-        flag  = True
-        while p and q:
-            p = p.next
-            q = q.next
-            if flag:
-                if not p: p = headB
-                if not q: q= headA
-                flag  = False
-            if p == q:
-                return p
-        return None
+        while p != q:
+            if not p : p = headB #end of 1st iteration
+            else: p = p.next
+            if not q: q = headA #end of 1st iteration
+            else: q =  q.next
+
+        return p
 

@@ -12,7 +12,7 @@ class Solution(object):
         :type inorder: List[int]
         :rtype: TreeNode
         """
-        if inorder:
+        if inorder: #check inorder otherwise error
             ind = inorder.index(preorder.pop(0))
             root = TreeNode(inorder[ind])
             root.left = self.buildTree(preorder,inorder[:ind])

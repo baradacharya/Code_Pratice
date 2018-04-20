@@ -32,6 +32,7 @@ class Solution(object):
                     cur_res.append(temp.right.val)
             if len(cur_res): res.append(cur_res)
         return res
+
     def create_Tree(self, ind, nums):
         """
         :param nums: list[int]

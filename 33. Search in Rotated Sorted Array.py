@@ -11,6 +11,7 @@ class Solution(object):
             m = (l + h)/2
             if target == nums[m]: return m
             #Trick : always look the target in the sorted side if not found look in the other side.
+            #break into subrange till u get sorted range
             # First decide the sorted side
             if nums[l] <= nums[m]: # left side is sorted
                 if nums[l] <= target <= nums[m]: #if target lies between l and m

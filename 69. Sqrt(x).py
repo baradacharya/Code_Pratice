@@ -1,5 +1,5 @@
 """
-Using binary search
+#binary search
 T: O(logn)
 
 Look for the critical point: i * i <= x and (i+1)(i+1)>x
@@ -17,7 +17,6 @@ class Solution(object):
             return x
         l = 1
         r  = x
-        res = 0
         while True:
             m  = (l + r)/2
             if m > x/m:

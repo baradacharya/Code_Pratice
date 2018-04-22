@@ -1,6 +1,7 @@
 #Binary Search Tree
 """
 Dividing a set into two equal length subsets, that one subset is always greater than the other.
+this visualization is important
 A (0 --- i-1 | i --- m)
 B (0 --- j-1 | j --- n)
 for median : 1. len(left_part) = len(right_part)
@@ -30,19 +31,20 @@ class Solution(object):
         while imin <= imax:
             i = (imin + imax)/2
             j = mid - i
+            #nums2[j-1] <= nums1[i] and nums1[i-1] <= nums2[j]
             if i < m and nums2[j-1] > nums1[i]: #i is too small
                 imin = i + 1
             elif i > 0 and nums1[i - 1] > nums2[j]:  # i is too large
                 imax = i - 1
             else: #i is perfect
-                #left_max calculation
+                #left_max calculation #corner cases
                 if i == 0: left_max = nums2[j-1] #no part of nums1 in left
                 elif j ==0: left_max = nums1[i-1] #no part of nums2 in left
                 else: left_max = max(nums1[i-1],nums2[j-1])
 
-                if (m + n) % 2 == 1:
+                if (m + n) % 2 == 1: #odd number exact median
                     return left_max
-
+                #even number no exact median avg of leftmax and right min
                 #right_min calculation
                 if i == m: right_min = nums2[j] #no part of nums1 in right
                 elif j == n: right_min = nums1[i] #no part of nums2 in right

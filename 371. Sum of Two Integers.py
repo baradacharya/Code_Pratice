@@ -7,9 +7,31 @@ class Solution(object):
         """
         if a == 0: return b
         if b == 0 : return a
+        if a > 0 and b < 0:
+            if b == - 2 **31:
+                return -self.subtract(-b,a)
+            return self.subtract(a,-b)
+        elif a < 0 and b > 0 :
+            if a == - 2 **31:
+                return -self.subtract(-a,b)
+            return self.subtract(b,-a)
+        elif a <0 and b < 0:
+            return -self.add(-a,-b)
+        else:
+            return self.add(a,b)
+
+    def add(self,a,b) :
         while b != 0:
-            a = bin(a) ^ bin(b)
             carry  = a & b
+            a = a ^ b
             b = carry << 1
+        return a
+    def subtract(self,a,b):
+        while b != 0 :
+            borrow = (~a) & b
+            a = a ^ b
+            b = borrow << 1
+        return a
+
 s = Solution()
-print s.getSum(1,3)
+print s.getSum(2147483647,-2147483648)

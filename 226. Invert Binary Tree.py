@@ -1,4 +1,5 @@
 #Definition for a binary tree node.
+# Trick use an extra variable to keep track of left and right side
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -11,12 +12,8 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        if root == None:
-            return root
-
-        temp_left = self.invertTree(root.right)
+        if not root: return None
         temp_right = self.invertTree(root.left)
-
-        root.left = temp_left
-        root.right =temp_right
+        root.left = self.invertTree(root.right)
+        root.right = temp_right
         return root

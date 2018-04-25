@@ -11,19 +11,11 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        head = ListNode(0)
-        cur = head
-        while l1 and l2 :
-            if l1.val < l2.val:
-                node = ListNode(l1.val)
-                l1 = l1.next
+        cur = head = ListNode(0)
+        while l1 and l2:
+            if l1.val<l2.val:
+                cur.next,cur,l1 = l1,l1,l1.next
             else:
-                node = ListNode(l2.val)
-                l2 = l2.next
-            cur.next = node
-            cur = cur.next
-        if l1:
-            cur.next = l1
-        if l2:
-            cur.next = l2
+                cur.next,cur,l2 = l2,l2,l2.next
+        cur.next = l1 or l2
         return head.next

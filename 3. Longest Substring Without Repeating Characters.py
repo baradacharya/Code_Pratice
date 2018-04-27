@@ -2,7 +2,7 @@ class Solution(object):
     def lengthOfLongestSubstring(self, s):
         """
         1. use two pointers beginning and end of sequence.
-        2. update pointers depending on map
+        2. update pointers depending on hash map
         """
         """
         :type s: str

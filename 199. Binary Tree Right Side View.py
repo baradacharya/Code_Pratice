@@ -1,4 +1,5 @@
 # Definition for a binary tree node.
+#queue/stack, hashmap
 class TreeNode(object):
     def __init__(self, x):
         self.val = x

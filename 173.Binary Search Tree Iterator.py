@@ -1,5 +1,4 @@
 # Definition for a  binary tree node
-
 #stack solution
 class TreeNode(object):
     def __init__(self, x):

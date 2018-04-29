@@ -5,6 +5,10 @@ class LinkedListNode(object):
         self.next  = None
         self.prev = None
 
+    def connect(self, nextNode):
+        self.next = nextNode
+        nextNode.prev = self
+
 class LRUCache(object):
     #Dictionary will contain <(Key,LinkedListNode)>
     #Use Double Linkedlist, head for removal, tail for adding into the list.
@@ -42,7 +46,8 @@ class LRUCache(object):
         :rtype: void
         """
         if key in self.dic:#remove from the list
-            self._remove(self.dic[key])
+            node = self.dic[key]
+            self._remove(node)
         node = LinkedListNode(key,value)
         self._add(node)
         self.dic[key] = node
@@ -58,10 +63,8 @@ class LRUCache(object):
         :return: void
         """
         prev_node = self.tail.prev
-        prev_node.next = node
-        node.prev = prev_node
-        node.next = self.tail
-        self.tail.prev = node
+        prev_node.connect(node)
+        node.connect(self.tail)
 
     def _remove(self, node):
         """
@@ -71,8 +74,7 @@ class LRUCache(object):
         """
         prev_node = node.prev
         next_node = node.next
-        prev_node.next = next_node
-        next_node.prev = prev_node
+        prev_node.connect(next_node)
         del node
 
 

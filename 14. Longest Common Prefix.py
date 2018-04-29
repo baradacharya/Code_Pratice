@@ -37,6 +37,7 @@ class Solution(object):
             else:
                 j = m -1
         return strs[0][:(i+j)/2]
+
     def isCommonPrefix(self,strs,len):
         s = strs[0][:len]
         for str in strs:

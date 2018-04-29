@@ -9,6 +9,6 @@ class Solution(object):
         res = [0] * len(nums)
         res[0] = nums[0]
         for i in range(1,len(nums)):
-            #python treating res[-1] as 0
+            #python treating res[-1] as 0 as it is the last elemnet
             res[i] = max(res[i-1], res[i-2]+ nums[i])
         return res[-1]

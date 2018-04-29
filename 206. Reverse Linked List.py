@@ -14,7 +14,5 @@ class Solution(object):
         prev = None
         while cur:
             next_node  = cur.next
-            cur.next = prev
-            prev = cur
-            cur = next_node
+            cur.next,prev,cur = prev,cur,next_node
         return prev

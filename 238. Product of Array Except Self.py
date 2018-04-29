@@ -32,7 +32,7 @@ class Solution(object):
         for i in range(len(nums)-1):
             res.append(res[-1]*nums[i])
         p = 1
-        #traverse from the right side , already calculated from the left
+        # traverse from the right side store product in p, already calculated product from the left
         for i in reversed(range(len(nums))):
             res[i] *= p
             p *= nums[i]

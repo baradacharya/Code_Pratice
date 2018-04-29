@@ -26,9 +26,9 @@ class Solution(object):
         dp[-1][-1] = True
         for i in range(len(s),-1,-1):
             for j in range(len(p)-1,-1,-1):
-                first_match = i < len(s) and p[j] in {s[i],'.'}
-                if len(p) > j+1 and p[j+1] == "*":
-                    dp[i][j] = dp[i][j+2] or first_match and dp[i+1][j]
+                first_match = i < len(s) and (p[j] == s[i] or p[j] == '.')
+                if j < len(p)-1 and p[j+1] == '*': #if next ch is *, #*=0 or *!=0
+                    dp[i][j] = dp[i][j+2] or (first_match and dp[i+1][j])
                 else:
                     dp[i][j] = first_match and dp[i+1][j+1]
         return dp[0][0]

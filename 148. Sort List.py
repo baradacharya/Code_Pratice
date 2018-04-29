@@ -3,6 +3,7 @@ class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
+
 #1. cut the list to two halves
 #2. sort each half
 #3. merge l1 and l2
@@ -18,7 +19,7 @@ class Solution(object):
         prev,slow,fast = None,head,head
         while fast and fast.next:
             prev, slow, fast = slow, slow.next, fast.next.next
-        prev.next = None
+        prev.next = None #important end of 1st list
         return self.merge(self.sortList(head),self.sortList(slow))
 
     def merge(self,l1,l2):

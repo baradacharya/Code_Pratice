@@ -7,6 +7,7 @@ possible in two ways 1. we have share previously (hold)
                      2. we did n't have (cash) but we buy on a given day(cash  - prices[i])
 start with cash = 0 #didn't have share, hold = -prices[0] #buy 1st share
 """
+#You may complete as many transactions as you like
 class Solution(object):
     def maxProfit(self, prices):
 

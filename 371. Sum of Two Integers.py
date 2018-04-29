@@ -24,7 +24,7 @@ class Solution(object):
         while b != 0:
             carry  = a & b
             a = a ^ b
-            b = carry << 1
+            b = carry << 1 #shift the carry
         return a
     def subtract(self,a,b):
         while b != 0 :
@@ -34,4 +34,5 @@ class Solution(object):
         return a
 
 s = Solution()
+print s.getSum(4,6)
 print s.getSum(2147483647,-2147483648)

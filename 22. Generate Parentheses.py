@@ -41,8 +41,10 @@ class Solution(object):
                 ans.append(s)
                 return
             else:
+                #open should always less than n
                 if open < n:
                     generate(s+'(',open+1,close)
+                #close should always less than open
                 if close < open:
                     generate(s+')',open,close+1)
         generate()

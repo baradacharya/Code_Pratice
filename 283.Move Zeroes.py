@@ -26,14 +26,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        last_nonzero  = 0
-        for i in range(len(nums)):
-            if nums[i] != 0 :
+        i  = 0
+        for j in range(len(nums)):
+            if nums[j] != 0 :
                 #swap numbers.
-                temp = nums[last_nonzero]
-                nums[last_nonzero] = nums[i]
-                nums[i] = temp
-                last_nonzero += 1
+                nums[i],nums[j] = nums[j], nums[i]
+                i += 1
 
 s = Solution()
 nums  = [1, 0, 3, 12]

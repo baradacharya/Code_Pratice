@@ -10,7 +10,4 @@ class Solution(object):
             l[i],l[j] = l[j],l[i]
             i += 1
             j -= 1
-        # return s
-        # l  = [i for i in s]
-        # l.reverse()
         return ''.join(l)

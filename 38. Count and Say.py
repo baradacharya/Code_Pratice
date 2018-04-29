@@ -11,9 +11,9 @@ class Solution(object):
             count = 1
             c = num[0]
             for i in range(1,len(num)):
-                if num[i] == c:
+                if num[i] == c: #count for same  ch
                     count += 1
-                else:
+                else:#diif ch add prev ch with count
                     res += str(count)
                     res += c
                     c = num[i]

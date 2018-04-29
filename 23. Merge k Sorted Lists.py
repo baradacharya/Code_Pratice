@@ -15,7 +15,7 @@ class Solution(object):
         """
         from Queue import PriorityQueue
         cur = head = ListNode(0)
-        pq = PriorityQueue()
+        pq = PriorityQueue() #lowest first
         #add head of all nodes to prioty queue
         for l in lists:
             if l: pq.put((l.val, l))  # value,node

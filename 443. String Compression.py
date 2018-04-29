@@ -1,3 +1,4 @@
+#two pointer approach
 class Solution(object):
     def compress(self, chars):
         write = 0

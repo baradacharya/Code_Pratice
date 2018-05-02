@@ -22,17 +22,17 @@ class Solution(object):
         q = l2
         cur = dummyhead
         carry = 0
-        while p!= None or q != None:
-            if p != None: x = p.val
+        while p or q:
+            if p: x = p.val
             else: x = 0
-            if q != None: y = q.val
+            if q : y = q.val
             else: y = 0
             sum = x + y + carry
             carry = sum/10
             cur.next = ListNode(sum%10)
             cur = cur.next
-            if p!= None: p = p.next
-            if q!= None: q = q.next
+            if p: p = p.next
+            if q: q = q.next
         if carry > 0:
             cur.next = ListNode(carry)
         return dummyhead.next

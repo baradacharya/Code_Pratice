@@ -18,7 +18,7 @@ class Solution(object):
                 res.append(matrix[i][colend])
             colend -= 1
             #Move Left
-            if rowbeg<= rowend:
+            if rowbeg<= rowend:#Trick here check this condition
                 for i in range(colend,colbeg-1,-1):
                     res.append(matrix[rowend][i])
             rowend -= 1

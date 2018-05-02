@@ -22,7 +22,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        #74 / 75 test cases passed.
         n = len(nums)
         i = 0
         reach = 0

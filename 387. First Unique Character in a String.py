@@ -47,6 +47,7 @@ class Solution(object):
                 char_map[c].append(i)
         low_index = len(s)
         flag = False
+        #search over 26 characters
         for c in char_map:
             if len(char_map[c]) == 1:
                 flag = True

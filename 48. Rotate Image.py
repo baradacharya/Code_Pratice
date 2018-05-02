@@ -8,7 +8,7 @@ class Solution(object):
         """
         matrix.reverse()
         for i in range(len(matrix)):
-            for j in range(i,len(matrix)):
+            for j in range(i,len(matrix)):#imp mark to starting from i
                 matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
         return matrix
 

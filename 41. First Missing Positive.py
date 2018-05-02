@@ -15,4 +15,5 @@ class Solution(object):
                 return i + 1
         return len(nums) + 1
 s = Solution()
-print s.firstMissingPositive([-1,4,2,1,9,10])
+# print s.firstMissingPositive([-1,4,2,1,9,10])
+print s.firstMissingPositive([3,4,-1,1])

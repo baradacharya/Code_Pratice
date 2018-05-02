@@ -9,7 +9,6 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
-        nums.sort()
         #either DFS or backtrack can use
         self.DFS(sorted(nums),0,[],res)
         # self.Backtrack(nums, 0, [], res)

@@ -17,5 +17,5 @@ class Solution(object):
         return stack[0][0]
 
 s = Solution()
-# print s.decodeString(s = "3[a]2[bc]")
-print s.decodeString(s = "3[a10[c]]")
+print s.decodeString(s = "3[a]2[bc]")
+# print s.decodeString(s = "3[a10[c]]")

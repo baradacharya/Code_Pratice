@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: str
         """
         import collections
-        # no of char we need,pos no -> we need that much ch in our window,neg no we don't need, can remove from window.
+        # no of char we need,positive no -> we need that much ch in our window,neg no we don't need, can remove from window.
         char_dic = collections.Counter(t)
         missing = len(t) #no of char of t missing from window
         l = start = end = 0 #l,r two pointer of window, start,end min windo

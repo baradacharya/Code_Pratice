@@ -34,6 +34,7 @@ class Solution(object):
         res = []
         self.DFS(nums,[],res)
         return res
+
     def DFS(self,nums,path,res):
         if len(path) == len(nums):
             res.append(path)

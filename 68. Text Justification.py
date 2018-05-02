@@ -16,7 +16,7 @@ class Solution(object):
         for word in words:
             #keep manadatory space between words.
             no_word = len(cur_line)
-            if no_char + no_word + len(word) > maxWidth:
+            if no_char + no_word + len(word) > maxWidth: #done with adding words for this line,adjust line space
                 #adjust in cur line
                 for i in range(maxWidth-no_char):#available space
                     cur_line[i%(no_word-1 or 1)] += ' ' #add spae in round robin method

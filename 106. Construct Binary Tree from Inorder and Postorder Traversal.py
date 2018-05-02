@@ -12,6 +12,7 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
+        #pop right,first right,then left
         if inorder:
             ind = inorder.index(postorder.pop())
             root = TreeNode(inorder[ind])

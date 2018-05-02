@@ -16,7 +16,7 @@ class Solution(object):
         stack = [(root,False)]
         while stack:
             cur_node,visited = stack.pop()
-            if visited:
+            if visited: #2nd time visit
                 res.append(cur_node.val)
             else:
                 #postorder right,left,node

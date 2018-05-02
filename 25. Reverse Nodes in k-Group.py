@@ -21,7 +21,7 @@ class Solution(object):
                 count -= 1
                 next_node = head.next
                 head.next,cur,head = cur,head,next_node
-            head = cur
+            head = cur #final
         return head
 
     def create_List(self,nums):

@@ -34,4 +34,5 @@ class Solution(object):
 
 
 s = Solution()
-print s.divide(2**31,1)
+# print s.divide(2**31,1)
+print s.divide(300,5)

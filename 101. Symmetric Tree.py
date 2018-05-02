@@ -37,7 +37,7 @@ class Solution(object):
         """
         if not root: return None
 
-        inverted_tree = TreeNode(root.val)
+        inverted_tree = TreeNode(root.val) #trick to create new tree
         inverted_tree.right = self.invertedTree(root.left)
         inverted_tree.left = self.invertedTree(root.right)
         return inverted_tree

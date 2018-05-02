@@ -20,4 +20,5 @@ class Solution(object):
         return ans
 
 s = Solution()
-print s.maxSubArrayLen([1, -1, 5, -2, 3],3)
+# print s.maxSubArrayLen([1, -1, 5, -2, 3],3)
+print s.maxSubArrayLen([-2,-1,2,1],1)

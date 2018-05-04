@@ -11,7 +11,7 @@ class Solution(object):
     #     t = zip(*count.most_common(k))[0]
     #     return t
 
-    #using minnimum heap
+    #using minnimum heap #more efficient
     def topKFrequent(self, nums, k):
         """
         :type nums: List[int]

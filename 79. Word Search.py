@@ -16,13 +16,17 @@ class Solution(object):
         return False
 
     def DFS(self,board,i,j,word):
-        if len(word) == 0: #word is found
+
+        if len(word) == 0: #1. word is found
             return True
-        #check for validity of board
+
+        #2.check for validity of board
         if i < 0 or i >= len(board) or j < 0  or j >= len(board[0]) or board[i][j] != word[0]:
             return False
-        temp = board[i][j] #1st char found
-        board[i][j] = "#"
+
+        temp = board[i][j] #3. 1st char found
+        board[i][j] = "#"#to avoid retraverse
+        #4. Call recursively.
         if self.DFS(board,i+1,j,word[1:]) or self.DFS(board,i-1,j,word[1:]) \
             or self.DFS(board,i,j+1,word[1:])  or self.DFS(board,i,j-1,word[1:]) :
             return True

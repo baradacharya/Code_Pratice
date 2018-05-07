@@ -1,6 +1,7 @@
 """
 length of longest substring T that contains atmost two distinct chars
 """
+#similar to 340
 class Solution(object):
     def lengthOfLongestSubstringTwoDistinct(self, s):
         """

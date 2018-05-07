@@ -1,3 +1,4 @@
+#similar to 159
 class Solution(object):
     def lengthOfLongestSubstringKDistinct(self, s, k):
         """

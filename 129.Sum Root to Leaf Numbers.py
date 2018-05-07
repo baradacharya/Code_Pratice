@@ -14,7 +14,7 @@ class Solution:
         if not root: return root
         paths = []
         path = []
-        self.BFS(root,paths,path)
+        self.DFS(root,paths,path)
         sum = 0
         for path in paths:
             num = 0
@@ -23,13 +23,13 @@ class Solution:
             sum += num
         return sum
 
-    def BFS(self,root,paths,path):
+    def DFS(self,root,paths,path):
         if not root: return root
         if root.left == None and root.right == None:
             paths.append(path + [root.val])
             return
-        self.BFS(root.left,paths, path + [root.val])
-        self.BFS(root.right,paths, path + [root.val])
+        self.DFS(root.left,paths, path + [root.val])
+        self.DFS(root.right,paths, path + [root.val])
         return
 
     def create_Tree(self, ind, nums):

@@ -26,7 +26,8 @@ class Solution(object):
         i = 0
         reach = 0
         while i <= reach and i < n:
-            reach = max(nums[i]+i,reach)
+            if i + nums[i] > reach:
+                reach = i + nums[i]
             i += 1
         return i == n
 

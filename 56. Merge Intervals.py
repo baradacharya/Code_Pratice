@@ -16,5 +16,5 @@ class Solution(object):
                 merged[-1].end = max(interval.end,merged[-1].end)
         return merged
 s = Solution()
-print s.merge([[2,6],[8,10],[1,3],[15,18]])
+print s.merge([Interval(2,6),Interval(8,10),Interval(1,3),Interval(15,18)])
 print s.merge([[1,3],[2,6],[8,10],[15,18]])

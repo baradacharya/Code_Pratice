@@ -1,3 +1,4 @@
+#two pointer, dictionary
 class Solution(object):
     def minWindow(self, s, t):
         """

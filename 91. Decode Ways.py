@@ -1,3 +1,4 @@
+#condition 0 should be followed by 1 or 2
 class Solution(object):
     def numDecodings(self, s):
         """
@@ -7,7 +8,8 @@ class Solution(object):
         n = len(s)
         if n == 0: return 0
         dp = [0] * (n + 1)
-        dp[n] = 1
+        dp[n] = 1 #initializer
+
         if s[n - 1] == '0':
             dp[n - 1] = 0
         else:
@@ -22,3 +24,6 @@ class Solution(object):
             else:
                 dp[i] = dp[i + 1]
         return dp[0]
+s = Solution()
+# print s.numDecodings( "22654213")
+print s.numDecodings( "2265202120")

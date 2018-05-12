@@ -7,8 +7,9 @@ class Solution(object):
         :rtype: int
         """
         if not nums: return 0
-        l = r = 0
-        min_len = 2**31-1
+        l = 0
+        maxnum = 2**31-1
+        min_len = maxnum
         cur_sum = 0
         for r,num in enumerate(nums):
             cur_sum += num
@@ -16,6 +17,6 @@ class Solution(object):
                 min_len = min(min_len,r-l+1)
                 cur_sum -= nums[l]
                 l += 1
-        return min_len if min_len!= 2**31-1 else 0
+        return min_len if min_len!= maxnum else 0
 s = Solution()
 print s.maxSubArrayLen(7,[2,3,1,2,4,3])

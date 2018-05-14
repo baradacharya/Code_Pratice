@@ -8,8 +8,10 @@ class Solution(object):
         nums.sort()
         self.DFS(nums,0,[],res)
         return res
+
     def DFS(self,nums,start,path,res):
         res.append(path)
+
         for i in range(start,len(nums)):
             if i >start and nums[i] == nums[i-1]:#same number
                 continue

@@ -7,6 +7,7 @@ class Solution(object):
         # return DP[-1]
 
         DP = [True]
+        #i will be used as exlusive like s[j:i] so s[:len(s)]
         for i in range(1, len(s) + 1):
             for j in range(i):
                 temp = False
@@ -15,3 +16,4 @@ class Solution(object):
                     break
             DP.append(temp)
         return DP[-1]
+

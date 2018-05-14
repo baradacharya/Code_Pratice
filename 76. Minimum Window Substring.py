@@ -25,3 +25,4 @@ class Solution(object):
         return s[start:end]
 s = Solution()
 print s.minWindow("ADOBECODEBANC","ABC")
+

@@ -2,6 +2,8 @@
 #2 Compare one by one T:O(kn) S:O(n)
 #3 Optimize Approach 2 by Priority Queue T:o(nlogk) S:O(k)
 
+#Priorty Queue uses
+
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -47,3 +49,17 @@ q = s.create_List([1,3,4])
 r = s.create_List([2,6])
 u = s.mergeKLists([p,q,r])
 s.traverse_list(u)
+
+# import heapq
+# cur = head = ListNode(0)
+# heap = []
+# # add head of all nodes to prioty queue
+# for l in lists:
+#     if l: heapq.heappush(heap, (l.val, l))
+# # merge now
+# while heap:
+#     val, node = heapq.heappop(heap)
+#     cur.next, cur = node, node
+#     if node.next:  # add next node of this list to priorty queue
+#         heapq.heappush(heap, (node.next.val, node.next))
+# return head.next

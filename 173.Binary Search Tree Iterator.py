@@ -11,7 +11,7 @@ class BSTIterator(object):
         """
         :type root: TreeNode
         """
-        self.stack = []
+        self.stack = [] #Trick is to use stack
         while root:
             self.stack.append(root)
             root = root.left
@@ -27,7 +27,7 @@ class BSTIterator(object):
         :rtype: int
         """
         node = self.stack.pop()
-        x = node.right
+        x = node.right #check for right sub tree always,they are successor
         while x:
             self.stack.append(x)
             x = x.left

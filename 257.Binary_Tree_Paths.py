@@ -12,12 +12,9 @@ class Solution(object):
         :rtype: List[str]
         """
         res = []
-        if not root:
-            return res
-        self.bfspath(root, [], res)
-        # return res
+        if not root: return res
+        self.DFS(root, res, [])
         res_str = []
-        #for putting into format
         for list_ in res:
             s = ""
             s += str(list_[0])
@@ -27,12 +24,10 @@ class Solution(object):
             res_str.append(s)
         return res_str
 
-    def bfspath(self, root, path, res):
-        if not root:
-            return
-
-        if (root.left == None and root.right == None):
+    def DFS(self, root, res, path):
+        if not root.left and not root.right:
             res.append(path + [root.val])
-
-        self.bfspath(root.left, path + [root.val], res)
-        self.bfspath(root.right, path + [root.val], res)
+            return
+        if root.left: self.DFS(root.left, res, path + [root.val])
+        if root.right: self.DFS(root.right, res, path + [root.val])
+        return

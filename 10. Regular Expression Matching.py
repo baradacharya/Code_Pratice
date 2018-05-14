@@ -15,6 +15,8 @@
 #             return first_match and self.isMatch(s[1:],p[1:])
 
 #2.DP, 2D DP
+#generaaly incase of strings comp take len (n+1) and processes from right to left
+#because there always a case 0 or >1 c in left or  0 or > 1 c in right to handle 0 and 0 case
 class Solution(object):
     def isMatch(self, s, p):
         """
@@ -26,8 +28,8 @@ class Solution(object):
         dp[-1][-1] = True
         for i in range(len(s),-1,-1):
             for j in range(len(p)-1,-1,-1):
-                first_match = i < len(s) and (p[j] == s[i] or p[j] == '.')
-                if j < len(p)-1 and p[j+1] == '*': #if next ch is *, #*=0 or *!=0
+                first_match = i < len(s) and (p[j] == s[i] or p[j] == '.') #trick to use first match
+                if j < len(p)-1 and p[j+1] == '*': #if next ch is *, # *==0 or *!=0
                     dp[i][j] = dp[i][j+2] or (first_match and dp[i+1][j])
                 else:
                     dp[i][j] = first_match and dp[i+1][j+1]

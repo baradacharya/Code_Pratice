@@ -39,8 +39,7 @@ class Solution:
                 else:
                     res.append(cur_res)
                     flag = True
-        return
-
+        return res
     def create_Tree(self, ind, nums):
         """
         :param nums: list[int]

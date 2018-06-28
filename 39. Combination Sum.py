@@ -2,6 +2,8 @@
 Subsets, Permutations, Combination Sum, Palindrome Partitioning
 Backtrack
 """
+#unique combinations
+#The same repeated number may be chosen from candidates unlimited number of times.
 class Solution(object):
     def combinationSum(self, candidates, target):
         """
@@ -13,14 +15,14 @@ class Solution(object):
         self.DFS(candidates, target, 0, res, [])
         return res
 
-    def DFS(self, candidates, target, start, res, path):
+    def DFS(self,candidates,target,start,res,path):
+        if target < 0 :
+            return
         if target == 0:
             res.append(path)
             return
-        for i in range(start, len(candidates)):
-            num = candidates[i]
-            if target - num >= 0:
-                self.DFS(candidates, target - num, i, res, path + [num])  # not i+1 as we can reuse this i.
+        for i in range(start,len(candidates)):
+            self.DFS(candidates, target - candidates[i],i,res,path+[candidates[i]])# not i+1 as we can reuse same i.
 
 s = Solution()
 print s.combinationSum([2,3,6,7],7)

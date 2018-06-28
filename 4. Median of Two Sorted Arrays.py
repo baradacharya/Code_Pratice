@@ -47,7 +47,7 @@ class Solution(object):
                 #even number no exact median avg of leftmax and right min
                 #right_min calculation
                 if i == m: right_min = nums2[j] #no part of nums1 in right
-                elif j == n: right_min = nums1[i] #no part of nums2 in right
+                elif j == n: right_min = nums1[i] #all part of nums2 in right
                 else: right_min = min(nums1[i],nums2[j])
 
                 return (left_max + right_min)/2.0

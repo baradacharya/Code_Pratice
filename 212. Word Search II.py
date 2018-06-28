@@ -35,9 +35,9 @@ class Solution(object):
         if trie.isWord:
             self.res.add(prefix)
 
-        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]):
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] == '#':
             return
-        if board[i][j] != '#' and board[i][j] in trie.children:
+        if  board[i][j] in trie.children:
             c = board[i][j]
             board[i][j] = '#'  # mark visited
             self.DFS(board, i + 1, j, trie.children[c], prefix + c)

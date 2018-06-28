@@ -30,7 +30,7 @@ class Solution(object):
                     return s[i:] == t[i+1:]#Delete 1 char from t
         return abs(len(s) - len(t)) == 1
 s = Solution()
-# print s.isOneEditDistance("ab","acb")
-#print s.isOneEditDistance("cab","ad")
+print s.isOneEditDistance("ab","acb")
+print s.isOneEditDistance("cab","ad")
 print s.isOneEditDistance("1203","1213")
 

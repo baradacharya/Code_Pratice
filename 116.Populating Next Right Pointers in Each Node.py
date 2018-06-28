@@ -29,7 +29,7 @@ class Solution:
     def connect(self, root):#will work for 116 and 117
         #simple level order traversal with extra node to keep track of the left
         if not root: return None
-        cur_child = leftmost_child  = TreeLinkNode(0)
+        left_most_child = cur_child = TreeLinkNode(0)
         parent  = root
         while parent:
             cur_child.next = parent.left #if left exists, it will assign
@@ -40,5 +40,5 @@ class Solution:
                 cur_child = cur_child.next
             parent = parent.next
             if not parent: #finished with this level, go to next level
-                cur_child = leftmost_child
-                parent = leftmost_child.next
+                cur_child = left_most_child
+                parent = left_most_child.next

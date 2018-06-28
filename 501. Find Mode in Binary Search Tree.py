@@ -14,15 +14,19 @@ class Solution(object):
         :rtype: List[int]
         """
         res =[]
+
         if not root : return res
         counter = {}
+
         def DFS(root):
             if not root: return
             counter[root.val] = counter.get(root.val, 0) + 1
             DFS(root.left)
             DFS(root.right)
+
         DFS(root)
         max_val = max(counter.values())
         for val in counter:
-            if counter[val] == max_val: res.append(val)
+            if counter[val] == max_val:
+                res.append(val)
         return res

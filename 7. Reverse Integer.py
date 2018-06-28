@@ -10,9 +10,12 @@ class Solution(object):
         if x < 0:
             x = -x
             neg = True
+
         num = 0
         for i in reversed(str(x)):
             num = num *10 + int(i)
+
+        #check validity and return.
         if neg :
             if num > max_int_neg:return 0
             else: return -1 * num

@@ -1,5 +1,5 @@
 #one pointewr, hash map for storing sum  and index (sum from starting upto that index)
-#209. Minimum Size Subarray Sum
+#209. Minimum Size Subarray Sum #560
 class Solution(object):
     def maxSubArrayLen(self, nums, k):
         """
@@ -16,11 +16,11 @@ class Solution(object):
                 ans = i+1
             elif cur_sum-k in  sum_map:
                 ans = max(ans,i-sum_map[cur_sum-k])
-            if cur_sum not in sum_map:#add this sum to map
+            if cur_sum not in sum_map:#add this sum to map if it was n't there previously
                 sum_map[cur_sum] = i
         return ans
 
 s = Solution()
-# print s.maxSubArrayLen([1, -1, 5, -2, 3],3)
+print s.maxSubArrayLen([1, -1, 5, -2, 3,-3],3)
 print s.maxSubArrayLen([-2,-1,2,1],1)
 

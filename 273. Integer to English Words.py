@@ -32,6 +32,6 @@ class Solution(object):
 
 
 s = Solution()
-print s.numberToWords(123)
-print s.numberToWords(12345)
+# print s.numberToWords(123)
+# print s.numberToWords(12345)
 print s.numberToWords(1234567)

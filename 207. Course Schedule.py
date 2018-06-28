@@ -1,6 +1,7 @@
 """
 finding if a cycle exists in a directed graph
 topological sort
+DFS
 """
 class Solution(object):
     def canFinish(self, numCourses, prerequisites):

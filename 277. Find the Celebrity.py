@@ -31,9 +31,9 @@ class Solution(object):
             if knows(candidate,i):
                 candidate = i
         for i in range(candidate):#already searched from [candidate,n],now search from [0,candidate]
-            if knows(candidate,i):
+            if knows(candidate,i):#check candidate shouldn't know anyone
                 return -1
-        for i in range(n):#check candidate shouldn't know anyone
-            if not knows(i,candidate):
+        for i in range(n):
+            if not knows(i,candidate):#check everybody should know candidate
                 return -1
         return candidate

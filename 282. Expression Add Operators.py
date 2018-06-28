@@ -8,7 +8,7 @@ class Solution(object):
     def addOperators(self, num, target):
         res, self.target = [], target
         for i in range(1,len(num)+1):
-            if i == 1 or (i > 1 and num[0] != "0"): # prevent "00*" as a number
+            if i == 1 or (i > 1 and num[0] != "0"): # prevent "0*" as a number
                 self.dfs(num[i:], num[:i], int(num[:i]), int(num[:i]), res) # this step put first number in the string
         return res
 
@@ -17,16 +17,25 @@ class Solution(object):
             if cur == self.target:
                 res.append(temp)
             return
-        for i in range(1, len(num)+1):
+        for i in range(1, len(num)+1): #num[:1] means num[0]
             val = num[:i]
-            if i == 1 or (i > 1 and num[0] != "0"): # prevent "00*" as a number
+            if i == 1 or (i > 1 and num[0] != "0"): # prevent "0*" as a number
                 self.dfs(num[i:], temp + "+" + val, cur+int(val), int(val), res)
                 self.dfs(num[i:], temp + "-" + val, cur-int(val), -int(val), res)
                 self.dfs(num[i:], temp + "*" + val, cur-last+last*int(val), last*int(val), res)
-                # cur = 4+2 ,last = 2, val = 5 ,we have to do 4+2*5 then cur - last + last * val = 4+2 - 2 + 2 * 5
+                # cur = 4+2 ,last = 2, val = 5 ,we have to do 4+2*5 then cur - last + last * val = 4+2 - 2 + 2 *
+
+
 
 s = Solution()
 print s.addOperators(num = "232", target = 8)
+print s.addOperators(num="105",target=5)
+# "105", 5 #why this is required if i == 1 or (i > 1 and num[0] != "0"): required
+# Output:
+# ["1*0+5", "1*05", "10-5"]
+# Expected:
+# ["1*0+5", "10-5"]
+
 
 # class Solution(object):
 #     def addOperators(self, num, target):

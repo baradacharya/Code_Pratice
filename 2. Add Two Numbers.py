@@ -18,8 +18,7 @@ class Solution(object):
         :rtype: ListNode
         """
         dummyhead = ListNode(0)
-        p = l1
-        q = l2
+        p,q = l1,l2
         cur = dummyhead
         carry = 0
         while p or q:

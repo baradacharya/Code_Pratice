@@ -23,4 +23,5 @@ class Solution(object):
         return cur_max
 
 s =  Solution()
-print s.deleteAndEarn([3, 4, 2,5,6,7,8])
+# print s.deleteAndEarn([3, 4, 2,5,6,7,8])
+print s.deleteAndEarn([2, 2, 3, 3, 3, 4])

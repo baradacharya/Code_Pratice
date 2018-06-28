@@ -41,4 +41,5 @@ class Solution(object):
 
 
 s = Solution()
-print s.longestConsecutive([1,2,0,1])
+# print s.longestConsecutive([1,2,0,1])
+print s.longestConsecutive([100, 4, 200, 1, 3, 2])

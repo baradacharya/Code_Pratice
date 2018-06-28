@@ -49,5 +49,5 @@ class Solution(object):
         return True
 
 s =Solution()
-# print s.alienOrder(["wrt","wrf","er","ett","rftt"])
-# print s.alienOrder(["ab","adc"])
+print s.alienOrder(["wrt","wrf","er","ett","rftt"])
+print s.alienOrder(["ab","adc"])

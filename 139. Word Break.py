@@ -17,3 +17,43 @@ class Solution(object):
             DP.append(temp)
         return DP[-1]
 
+"""
+l
+[True, False]
+le
+e
+[True, False, False]
+lee
+ee
+e
+[True, False, False, False]
+leet
+[True, False, False, False, True]
+leetc
+eetc
+etc
+tc
+c
+[True, False, False, False, True, False]
+leetco
+eetco
+etco
+tco
+co
+o
+[True, False, False, False, True, False, False]
+leetcod
+eetcod
+etcod
+tcod
+cod
+od
+d
+[True, False, False, False, True, False, False, False]
+leetcode
+eetcode
+etcode
+tcode
+code
+[True, False, False, False, True, False, False, False, True]
+"""

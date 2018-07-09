@@ -2,7 +2,7 @@
 def findNumberOfLIS(nums):
     N = len(nums)
     if N <= 1: return N
-    lengths = [0] * N  # lengths[i] = longest ending in nums[i]
+    lengths = [1] * N  # lengths[i] = longest ending in nums[i]
     counts = [1] * N  # count[i] = number of longest ending in nums[i]
 
     for i, num in enumerate(nums):

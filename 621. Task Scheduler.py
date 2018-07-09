@@ -15,20 +15,19 @@ class Solution(object):
         """
         time  = 0
         import heapq
-        counter = {}
-        for t in tasks:
-            counter[t] = counter[t] + 1 if t in counter else 1
+        import collections
+        counter = collections.Counter(tasks)
         heap = [-c for c in counter.values()] #Maxheap so negative value
         heapq.heapify(heap)
         while heap :
             freq_temp = []#will store updated frequency
             #heapification occurs only after the intervals of cooling time, n, as done in the last approach.
             for _ in range(n+1):#min gap n so n+1 time
+                time += 1
                 if heap:
                     freq = heapq.heappop(heap)
                     if freq < -1: #freq > 1, freq -ve
                         freq_temp.append(freq+1) #freq-1 since freq -ve + 1
-                time += 1
                 if not heap and not freq_temp:
                     break
             for f in freq_temp:

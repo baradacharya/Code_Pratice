@@ -5,7 +5,7 @@ we know that the best swap must occur with the digit we are currently considerin
 """
 class Solution(object):
     def maximumSwap(self, num):
-        A = map(int, str(num))
+        A = map(int, str(num)) #A = [int(i) for i in str(num)]
         last = {x: i for i, x in enumerate(A)}
         for i, x in enumerate(A):
             for d in xrange(9, x, -1):

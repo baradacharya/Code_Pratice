@@ -12,8 +12,8 @@ class Solution:
         if not node:
             return
         node_copy = UndirectedGraphNode(node.label)#crreate instance of node
-        stack = [node]
-        Graph = {node:node_copy} #store the clone value coresponding to the original
+        stack = [node] #used for DFS
+        Graph = {node:node_copy} #store the original node:clone node.
         while stack:
             node = stack.pop()
             for neighbor in node.neighbors:

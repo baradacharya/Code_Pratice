@@ -55,11 +55,15 @@ class Solution(object):
             #calculate area of rectangle
             print left, right, height
             for j in range(n):
+                print((right[j]-left[j])*height[j])
                 maxArea = max(maxArea,(right[j]-left[j])*height[j])
 
         return maxArea
 
 s = Solution()
-# print s.maximalRectangle([["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]])
+print s.maximalRectangle([["1","0","1","0","0"],
+                          ["1","0","1","1","1"],
+                          ["1","1","1","1","1"],
+                          ["1","0","0","1","0"]])
 print s.maximalRectangle([["1"]])
 

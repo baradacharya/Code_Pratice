@@ -5,8 +5,8 @@ class Solution(object):
         :type y: int
         :rtype: int
         """
-        print bin(x)
-        print bin(x^y)
+        # print '{:032b}'.format(x),'{:32b}'.format(x),'{:b}'.format(x)
+        # print bin(x^y),bin(x),bin(y)
         return bin(x^y).count('1')
 
 s = Solution()

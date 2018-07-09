@@ -40,14 +40,13 @@ class WordDictionary(object):
             if node.isEnd:
                 self.res = True
             return
-        if word[0] == ".":#perform DFS to determine . value
-            for n in node.children.values():
-                self.DFS(n, word[1:])
+        if word[0] == ".":
+            for c in node.children:
+                self.DFS(node.children[c],word[1:])
         else:
-            node = node.children.get(word[0], None)
-            if not node:
-                return
-            self.DFS(node, word[1:])
+            if word[0] in node.children:
+                self.DFS(node.children[word[0]],word[1:])
+            return
 
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()

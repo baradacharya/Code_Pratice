@@ -13,32 +13,28 @@ class Solution(object):
         """
         if not root: return []
         from collections import deque
-        res = deque()
         queue = deque()
-        res.append([root.val])
         queue.append(root)
         ans = [root.val]
         while 1:
-            avg = 0
+            avg,length = 0 , 0
             count = len(queue)
             if count == 0:
                 break
-            cur_res = []
             while count:
                 temp = queue.popleft()
                 count -= 1
                 if temp.left:
                     avg += temp.left.val
                     queue.append(temp.left)
-                    cur_res.append(temp.left.val)
+                    length += 1
                 if temp.right:
                     avg += temp.right.val
                     queue.append(temp.right)
-                    cur_res.append(temp.right.val)
+                    length += 1
 
-            if len(cur_res):
-                res.appendleft(cur_res)
-                ans.append(1.0 * avg/len(cur_res))
+            if length > 0:
+                ans.append(1.0 * avg / length)
         return ans
 
     def create_Tree(self, ind, nums):

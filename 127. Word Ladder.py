@@ -53,7 +53,8 @@ class Solution(object):
                         w = word[:i] + '_' + word[i+1:]
                         neighbour_words = d.get(w,[])
                         for neighbour in neighbour_words:
-                            queue.append((neighbour,dist+1))
+                            if neighbour not in visited:
+                                queue.append((neighbour,dist+1))
             return 0
 
         d = construct_dict(set(wordList))

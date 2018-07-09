@@ -11,6 +11,8 @@ for each rectangle r:
         c.y gets the max of r.height and the previous value of c.y
 """
 #removing element from heap is time consuminge
+
+
 #problem with python heap implementation is we cannot remove a particular key from heap we have to pop the root always.
 #so we just marked the element which we have used and pop them at once.
 #one concern is there may be building with same height,se we have to add building height with apartment number.
@@ -33,7 +35,7 @@ class Solution(object):
         # Use a maxHeap to store possible heights, so use -ve values
         import heapq
         heap = []  # height,building_num
-        prev = 0
+        prev = 0 #A key point is the left endpoint of a horizontal line segment.  prev,cur to keep track of it
         used = set()
         for h in height:
             if h[1] < 0:  # starting point add height
@@ -49,20 +51,22 @@ class Solution(object):
             else:
                 cur = -heap[0][0]
 
-            #  compare current max height with previous max height, update result and
+            #  compare current max height with previous max height, update result
+            # A key point is the left endpoint of a horizontal line segment.
             if prev != cur:
                 result.append((h[0], cur))
                 prev = cur
         return result
 
 s = Solution()
-# print s.getSkyline([[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]])
-# print s.getSkyline([[0,2,3],[2,5,3]]) #[[0,3],[5,0]]
-# print s.getSkyline([[0,5,7],[5,10,7],[5,10,12],[10,15,7],[15,20,7],[15,20,12],[20,25,7]])
+print s.getSkyline([[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]])
+print s.getSkyline([[0,2,3],[2,5,3]]) #[[0,3],[5,0]]
+print s.getSkyline([[0,5,7],[5,10,7],[5,10,12],[10,15,7],[15,20,7],[15,20,12],[20,25,7]])
 
 
-height = [[1,3],[2,1],[4,5],[1,2]]
-height.sort()
-height = [[1,3],[2,1],[4,5],[1,2]]
-height.sort(key=lambda i: (i[0], i[1]))
-print height
+# height = [[1,3],[2,1],[4,5],[1,2]]
+# height.sort()
+# print height
+# height = [[1,3],[2,1],[4,5],[1,2]]
+# height.sort(key=lambda i: (i[0], i[1]))
+# print height

@@ -17,6 +17,12 @@ class Solution(object):
         :rtype: int
         """
         if not root: return 0
-        if root.left and not root.left.left and not root.left.right:
-            return root.left.val + self.sumOfLeftLeaves(root.right)
-        return self.sumOfLeftLeaves(root.left) + self.sumOfLeftLeaves(root.right)   # isn't leave
+        ans = 0
+        if root.left:
+            if not root.left.left and not root.left.right:  # leave
+                ans += root.left.val
+            else:
+                ans += self.sumOfLeftLeaves(root.left)
+        if root.right:
+            ans += self.sumOfLeftLeaves(root.right)
+        return ans

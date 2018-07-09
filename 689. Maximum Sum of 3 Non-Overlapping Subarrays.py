@@ -1,3 +1,4 @@
+#https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/solution/
 class Solution(object):
     def maxSumOfThreeSubarrays(self, nums, K):
         """
@@ -18,24 +19,26 @@ class Solution(object):
 
         left = [0] * len(W)
         best = 0
-        for i in range(len(W)):  # max sum from left
+        for i in range(len(W)):  # max sum from left upto that index
             if W[i] > W[best]:
                 best = i
             left[i] = best
 
         right = [0] * len(W)
         best = len(W) - 1
-        for i in range(len(W) - 1, -1, -1):  # max sum from right
+        for i in range(len(W) - 1, -1, -1):  # max sum from right after this index
             if W[i] >= W[best]:
                 best = i
             right[i] = best
 
         ans = None
-        for j in xrange(K, len(W) - K):  # find middle j
+        max_sum = 0
+        #i,j,k staring index of substring with K length
+        for j in xrange(K, len(W) - K):  # find middle j so that both and right will max
             i, k = left[j - K], right[j + K]
-            if ans is None or (W[i] + W[j] + W[k] >
-                                           W[ans[0]] + W[ans[1]] + W[ans[2]]):
+            if ans is None or (W[i] + W[j] + W[k] > max_sum):
                 ans = i, j, k
+                max_sum = W[ans[0]] + W[ans[1]] + W[ans[2]]
         return ans
 
 s = Solution()

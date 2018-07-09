@@ -13,7 +13,7 @@ class Solution(object):
         res.append(path)
 
         for i in range(start,len(nums)):
-            if i >start and nums[i] == nums[i-1]:#same number
+            if i >start and nums[i] == nums[i-1]:#same number only allowed for first time,i>start(trick)
                 continue
             self.DFS(nums,i+1,path+[nums[i]],res)
 

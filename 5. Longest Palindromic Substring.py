@@ -31,3 +31,19 @@ class Solution(object):
         return s[index:index+max_len]
 
 
+class Solution(object):
+    def longestPalindrome(self, s):
+        max_len = 0
+        index = 0
+        n = len(s)
+        if n == 0 : return ""
+        dp = [[0]*n for _ in range(n)]
+        for l in range(n-1,-1,-1):
+            for r in range(l,n):
+                dp[l][r] = (s[l] ==s[r]) and (r-l+1 <= 3 or dp[l+1][r-1])
+                if dp[l][r]:
+                    if max_len <= r - l + 1:
+                        max_len = r -l +1
+                        index = l
+        return s[index:max_len+index]
+

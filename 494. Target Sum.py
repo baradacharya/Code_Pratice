@@ -1,3 +1,4 @@
+#row is i , col coresponding possible sum
 class Solution(object):
     def findTargetSumWays(self, nums, S):
         """
@@ -18,7 +19,7 @@ class Solution(object):
             return 0
         else:
             return dp[len(nums) - 1][S + 1000]
-        
+
 s = Solution()
 print s.findTargetSumWays([1, 1, 1, 1, 1],3)
 
@@ -42,24 +43,6 @@ class Solution(object):
             self.calculate(nums,i+1,sum+nums[i],S)
             self.calculate(nums,i+1,sum-nums[i], S)
 
-"""
-public class Solution {
-    int count = 0;
-    public int findTargetSumWays(int[] nums, int S) {
-        calculate(nums, 0, 0, S);
-        return count;
-    }
-    public void calculate(int[] nums, int i, int sum, int S) {
-        if (i == nums.length) {
-            if (sum == S)
-                count++;
-        } else {
-            calculate(nums, i + 1, sum + nums[i], S);
-            calculate(nums, i + 1, sum - nums[i], S);
-        }
-    }
-}
-"""
 
 
  #2D Dynamic Programming

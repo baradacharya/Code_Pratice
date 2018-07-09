@@ -29,7 +29,7 @@ class NestedIterator(object):
         Initialize your data structure here.
         :type nestedList: List[NestedInteger]
         """
-        self.stack = nestedList[::-1]
+        self.stack = nestedList[::-1] #add in reverse manner
 
     def next(self):
         """
@@ -41,10 +41,16 @@ class NestedIterator(object):
         """
         :rtype: bool
         """
-        while self.stack:
+        while self.stack: #simplify nexted loops to integer level in while loop
             top = self.stack[-1]
             if top.isInteger():
                 return True
-            self.stack.pop()
+            self.stack.pop() #if top is a list
             self.stack += top.getList()[::-1]
         return False
+
+"""
+[[1,1],2,[1,1]], [1,1,2,[1,1]] , [1,1]
+
+[1,[4,[6]]] , [4,[6]],[[6]],[6]
+"""

@@ -19,13 +19,30 @@ class Solution(object):
             for j, num in enumerate(row):
                 if num:
                     dict_B[i][j] = num
-
         # Multiply Matrixes
         for i, row in enumerate(A):
-            for j, numA in enumerate(row):
+            for k, numA in enumerate(row):  # row of A
                 if numA:
-                    for k, numB in dict_B[j].iteritems():
-                        C[i][k] += numA * numB
+                    for j, numB in dict_B[k].iteritems():  # k is col of B
+                        # iteritems() -> key, value
+                        C[i][j] += numA * numB
         return C
 s = Solution()
-print s.multiply([[1,0,0],[-1,0,3]],[[7,0,0],[0,0,0],[0,0,1]])
+print s.multiply([[1,0,0],[-1,0,3]],[[0,7,0],[0,0,0],[0,0,1]])
+
+"""
+n*m, m*p => n*p
+void multiply(int mat1[][N], int mat2[][N], int res[][N])
+{
+    int i, j, k;
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < p; j++)
+        {
+            res[i][j] = 0;
+            for (k = 0; k < m; k++)
+                res[i][j] += mat1[i][k]*mat2[k][j];
+        }
+    }
+}
+"""

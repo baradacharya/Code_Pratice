@@ -1,3 +1,4 @@
+#https://leetcode.com/problems/maximal-square/solution/
 class Solution(object):
     def maximalSquare(self, matrix):
         """
@@ -16,4 +17,5 @@ class Solution(object):
         return max_len*max_len
 
 s = Solution()
-print s.maximalSquare([["1"]])
+# print s.maximalSquare([["1"]])
+print s.maximalSquare([["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]])

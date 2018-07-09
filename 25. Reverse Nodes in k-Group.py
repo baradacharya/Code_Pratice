@@ -17,7 +17,7 @@ class Solution(object):
             cur,count = cur.next,count+1
         if count == k : #need to reverse
             cur = self.reverseKGroup(cur,k) #cur will store next reversed node
-            while count > 0 :
+            while count > 0 :#to keep track at which node we should stop reversing
                 count -= 1
                 next_node = head.next
                 head.next,cur,head = cur,head,next_node

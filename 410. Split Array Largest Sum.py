@@ -32,9 +32,10 @@ class Solution(object):
         l,r = max_,sum_
         while l <= r:
             mid = (l+r)/2
-            if self.valid(mid,nums,m):
+            print mid
+            if self.valid(mid,nums,m): #larger sum
                 r = mid - 1
-            else:
+            else:#smaller sum
                 l = mid + 1
         return l
 
@@ -51,6 +52,7 @@ class Solution(object):
         #either we successfully divide the array into m parts and
         # the sum of each part is less than mid,
         #or we used up all numbers before we reach m.
+        #count < m or count == m
         return True #target is large , we can decrease
 s = Solution()
 print s.splitArray(nums = [7,2,5,10,8],m = 2)

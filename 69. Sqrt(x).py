@@ -17,7 +17,7 @@ class Solution(object):
             return x
         l = 1
         r  = x
-        while True:
+        while l <= r:
             m  = (l + r)/2
             if m > x/m:
                 r = m - 1

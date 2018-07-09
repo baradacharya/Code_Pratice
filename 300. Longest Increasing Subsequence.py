@@ -7,6 +7,7 @@ class Solution(object):
         for i in range(1,len(nums)):
             for j in range(i):
                 if nums[i] > nums[j]:
-                    dp[i] = max(dp[i],dp[j]+1)
+                    if dp[j] >= dp[i]:
+                        dp[i] = dp[j]+1
                     max_len = max(max_len,dp[i])
         return max_len

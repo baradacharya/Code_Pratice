@@ -10,7 +10,7 @@ class Solution(object):
         :rtype: int
         """
         l,r = 1,n
-        while l < r:
+        while l < r: #l<=r won't work
             m = (l+r)/2
             res = isBadVersion(m)
             if res == 1:

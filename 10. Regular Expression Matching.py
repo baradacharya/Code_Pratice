@@ -26,11 +26,13 @@ class Solution(object):
         """
         dp  = [[False] *(len(p)+1) for _ in range(len(s)+1)]
         dp[-1][-1] = True
-        for i in range(len(s),-1,-1):
+        for i in range(len(s),-1,-1):#mark len(s)
             for j in range(len(p)-1,-1,-1):
-                first_match = i < len(s) and (p[j] == s[i] or p[j] == '.') #trick to use first match
-                if j+1 < len(p) and p[j+1] == '*': #if next ch is *, # *==0 or *!=0
-                    dp[i][j] = dp[i][j+2] or (first_match and dp[i+1][j])
+                first_match = False
+                if i < len(s):
+                    first_match =  p[j] == s[i] or p[j] == '.' #trick to use first match
+                if j + 1< len(p) and p[j+1] == '*': #if next ch is *, # *== 0 or *!=0
+                    dp[i][j] = dp[i][j+2] or (first_match and dp[i+1][j]) #j+1 is the * one so j+2
                 else:
                     dp[i][j] = first_match and dp[i+1][j+1]
         return dp[0][0]

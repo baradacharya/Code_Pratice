@@ -28,14 +28,14 @@ class Solution(object):
         res = []
         possible = True
         for x, y in prerequisites:
-            graph[x].append(y)
+            graph[y].append(x)
         for i in range(numCourses):
-            if not visited[i]:
-                if not DFS(i):
-                    possible = False
-                    break
+            if not DFS(i):
+                possible = False
+                break
 
         if possible == True:
+            res.reverse()
             return res
         else:
             return []

@@ -25,5 +25,5 @@ class Solution(object):
                 dp[i] = dp[i + 1]
         return dp[0]
 s = Solution()
-# print s.numDecodings( "22654213")
+print s.numDecodings( "226")
 print s.numDecodings( "2265202120")

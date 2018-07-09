@@ -25,6 +25,7 @@ s = Solution()
 print s.countSubstrings("aaa")
 
 #2. DP just like longest palindrome
+# #dp is used for knowing if palindrome or not, not getting count
 class Solution(object):
     def countSubstrings(self, s):
         """
@@ -33,28 +34,11 @@ class Solution(object):
         """
         ans = 0
         n = len(s)
-        if n == 0 : return self.ans
-        dp = [[0]*n for _ in range(n)]
-        for i in range(n-1,-1,-1):
-            for j in range(i,n):
-                dp[i][j] = (s[i] ==s[j]) and (j-i <= 2 or dp[i+1][j-1])
-                if dp[i][j]:
+        if n == 0: return ans
+        dp = [[0] * n for _ in range(n)]
+        for l in range(n - 1, -1, -1):
+            for r in range(l, n):
+                dp[l][r] = (s[l] == s[r]) and (r - l + 1 <= 3 or dp[l + 1][r - 1])
+                if dp[l][r]:
                     ans += 1
         return ans
-
-
-"""
-public int countSubstrings(String s) {
-    int n = s.length();
-    int res = 0;
-    boolean[][] dp = new boolean[n][n];
-    for (int i = n - 1; i >= 0; i--) {
-        for (int j = i; j < n; j++) {
-            dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 3 || dp[i + 1][j - 1]);
-            if(dp[i][j]) ++res;
-        }
-    }
-    return res;
-}
-
-"""

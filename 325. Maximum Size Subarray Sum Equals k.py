@@ -18,9 +18,10 @@ class Solution(object):
                 ans = max(ans,i-sum_map[cur_sum-k])
             if cur_sum not in sum_map:#add this sum to map if it was n't there previously
                 sum_map[cur_sum] = i
+            # Do nothing  if this sum is in map previously; we need maximim size substring,so we need the earliest value
         return ans
 
 s = Solution()
-print s.maxSubArrayLen([1, -1, 5, -2, 3,-3],3)
+print s.maxSubArrayLen([1, -1, 5, -2, 1, 3,-3],3)
 print s.maxSubArrayLen([-2,-1,2,1],1)
 

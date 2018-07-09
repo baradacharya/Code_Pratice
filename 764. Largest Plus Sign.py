@@ -9,6 +9,8 @@ the corresponding count values are 01230120, and the integers are either 1 more 
 or 0. For each square, we want dp[r][c] to end up being the minimum of the 4 possible counts.
 At the end, we take the maximum value in dp.
 """
+
+
 class Solution(object):
     def orderOfLargestPlusSign(self, N, mines):
         banned = {tuple(mine) for mine in mines}
@@ -17,44 +19,38 @@ class Solution(object):
 
         for r in xrange(N):
             count = 0
-            for c in xrange(N):#left to right
+            for c in xrange(N):  # left to right
                 if (r, c) in banned:
                     count = 0
                 else:
                     count += 1
                 dp[r][c] = count
-
             count = 0
-            for c in xrange(N - 1, -1, -1):#right to left
+            for c in xrange(N - 1, -1, -1):  # right to left
                 if (r, c) in banned:
                     count = 0
                 else:
                     count += 1
-
-                if count < dp[r][c]:
-                    dp[r][c] = count#keep the min. one
+                if count < dp[r][c]: dp[r][c] = count  # keep the min. one
 
         for c in xrange(N):
             count = 0
-            for r in xrange(N):#up-down
+            for r in xrange(N):  # up-down
                 if (r, c) in banned:
                     count = 0
                 else:
                     count += 1
-
-                if count < dp[r][c]:
-                    dp[r][c] = count
+                if count < dp[r][c]: dp[r][c] = count  # keep the min. one
 
             count = 0
-            for r in xrange(N - 1, -1, -1):#down-up
+            for r in xrange(N - 1, -1, -1):  # down-up
                 if (r, c) in banned:
                     count = 0
                 else:
                     count += 1
-                if count < dp[r][c]:
-                    dp[r][c] = count
-                if dp[r][c] > ans:
-                    ans = dp[r][c]
+                if count < dp[r][c]: dp[r][c] = count
+
+                if dp[r][c] > ans: ans = dp[r][c]  # update ans
 
         return ans
 s = Solution()

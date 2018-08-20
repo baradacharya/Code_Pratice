@@ -27,6 +27,10 @@ class Graph(object):
         if self.p[i] != i: #i is not root
             i = self.find(self.p[i])#find the parent
         return i
+    # def find(self,x): #path compression
+    #     if self.p[x]!= x:
+    #         self.p[x] = self.find(self.p[x])
+    #     return self.p[x]
 
     # A utility function to do union of two subsets
     def union(self,x, y):

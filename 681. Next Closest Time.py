@@ -9,23 +9,22 @@ class Solution(object):
         while True:
             flag = False
             cur = (cur + 1) % (24 * 60)
-            a = divmod(cur, 60)
-            b = divmod(a[0], 10)
-            for d in b:
+            newTime = divmod(cur, 60)
+            hour = divmod(newTime[0], 10)
+            for d in hour:
                 if d not in allowed:
                     flag = True
                     break
-            if flag: continue
-            c = divmod(a[1], 10)
-            for d in c:
+            if flag:
+                continue
+            minute = divmod(newTime[1], 10)
+            for d in minute:
                 if d not in allowed:
                     flag = True
                     break
-            if flag: continue
+            if flag:
+                continue
             return "{:02d}:{:02d}".format(*divmod(cur, 60))
-            # if all(digit in allowed
-            #        for block in divmod(cur, 60)
-            #        for digit in divmod(block, 10)):
-            #     return "{:02d}:{:02d}".format(*divmod(cur, 60))
+
 s = Solution()
 print s.nextClosestTime("19:34")

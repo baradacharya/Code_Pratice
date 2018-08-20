@@ -19,10 +19,7 @@ class Solution(object):
                 #two chars alredy in dict, remove the not latest one(min index).replace with latest one
                 ind = min(distinct.values()) #will get the char with lowest position index
                 l = ind+1 #update left pointer
-                for char in distinct:
-                    if distinct[char] == ind:
-                        break
-                distinct.pop(char)
+                distinct.pop(s[ind])
             distinct[c] = r #store most recent index of char
             max_len = max(max_len,r-l+1) #update max len
         return max_len

@@ -5,14 +5,12 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        if len(nums) == 0:
-            return 0
+        if not nums: return 0
         i = 0
-        for j in range(len(nums)):
-            if(nums[j] != val):
-                nums[i] = nums[j]
+        for num in nums:
+            if num != val:
+                nums[i] = num
                 i += 1
-            #else: continue
         return i
 
 s = Solution()

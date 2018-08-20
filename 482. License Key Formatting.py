@@ -14,7 +14,6 @@ class Solution(object):
             if c != '-':
                 res.append(c.upper())
                 i += 1
-
         return ''.join(reversed(res)).lstrip('-')
 
 s = Solution()

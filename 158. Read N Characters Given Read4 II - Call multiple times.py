@@ -5,9 +5,12 @@
 
 
 #diff between prev qs and this qs is call multiple times. so have to maintain a queue for continuation
+#1. when we have read n number of char or 2. no char left for reading
+#We have to use extend in queue
 class Solution(object):
     def __init__(self):
         self.queue = []
+
     def read(self, buf, n):
         """
         :type buf: Destination buffer (List[str])
@@ -20,9 +23,9 @@ class Solution(object):
             l = read4(buf4)
             if l:
                 self.queue.extend(buf4)
-            read = min(len(self.queue),n)
-            if read == 0:
-                break
+            read = min(len(self.queue),n) #check for length of queue, it may contains previous data
+            if read == 0:#no char to read
+                return i
             for _ in range(read):
                 buf[i] = self.queue.pop(0)
                 i += 1

@@ -14,7 +14,8 @@ class Solution(object):
         self.ans = 0
 
         def arrow_length(node):
-            if not node: return 0
+            if not node:
+                return 0
             left_length = arrow_length(node.left)
             right_length = arrow_length(node.right)
             left_arrow = right_arrow = 0

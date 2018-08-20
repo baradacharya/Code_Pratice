@@ -12,7 +12,7 @@ class Solution(object):
         """
         #1.find the mid node
         fast = slow = head
-        while fast and fast.next:
+        while fast and fast.next:#using fast.next.next, so need to check fast and fast.next exists
             slow,fast = slow.next,fast.next.next
         #2.reverse the second half
         prev = None

@@ -8,21 +8,22 @@ class Solution(object):
         """
         #1. create adjancency list
         visited  =[0] * n
-        graph =  {x:[] for x in xrange(n) }
+        graph =  {x:[] for x in xrange(n)}
+
         #undirected graph
         for x,y in edges:
             graph[x].append(y)
             graph[y].append(x)
-        count  = 0
-        for i in range(n):
-            if not visited[i]:
-                self.DFS(graph,visited,i)
+        count = 0
+        for node in range(n):
+            if not visited[node]:
+                self.DFS(graph, visited, node)
                 count += 1
         return count
-    def DFS(self,graph,visited,i):
-        visited[i] = 1
-        for j in graph[i]:
-            if not visited[j]:
-                self.DFS(graph,visited,j)
 
+    def DFS(self, graph, visited, node):
+        visited[node] = 1
+        for adjNode in graph[node]:
+            if not visited[adjNode]:
+                self.DFS(graph, visited, adjNode)
 

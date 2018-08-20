@@ -1,89 +1,54 @@
-# class Solution {
-#   class UnionFind {
-#     int count; // # of connected components
-#     int[] parent;
-#     int[] rank;
-#
-#     public UnionFind(char[][] grid) { // for problem 200
-#       count = 0;
-#       int m = grid.length;
-#       int n = grid[0].length;
-#       parent = new int[m * n];
-#       rank = new int[m * n];
-#       for (int i = 0; i < m; ++i) {
-#         for (int j = 0; j < n; ++j) {
-#           if (grid[i][j] == '1') {
-#             parent[i * n + j] = i * n + j;
-#             ++count;
-#           }
-#           rank[i * n + j] = 0;
-#         }
-#       }
-#     }
-#
-#     public UnionFind(int N) { // for problem 305 and others
-#       count = 0;
-#       parent = new int[N];
-#       rank = new int[N];
-#       for (int i = 0; i < N; ++i) {
-#         parent[i] = -1;
-#         rank[i] = 0;
-#       }
-#     }
-#
-#     public boolean isValid(int i) { // for problem 305
-#       return parent[i] >= 0;
-#     }
-#
-#     public void setParent(int i) {
-#       parent[i] = i;
-#       ++count;
-#     }
-#
-#     public int find(int i) { // path compression
-#       if (parent[i] != i) parent[i] = find(parent[i]);
-#       return parent[i];
-#     }
-#
-#     public void union(int x, int y) { // union with rank
-#       int rootx = find(x);
-#       int rooty = find(y);
-#       if (rootx != rooty) {
-#         if (rank[rootx] > rank[rooty]) {
-#           parent[rooty] = rootx;
-#         } else if (rank[rootx] < rank[rooty]) {
-#           parent[rootx] = rooty;
-#         } else {
-#           parent[rooty] = rootx; rank[rootx] += 1;
-#         }
-#         --count;
-#       }
-#     }
-#
-#     public int getCount() {
-#       return count;
-#     }
-#   }
-#
-#   public List<Integer> numIslands2(int m, int n, int[][] positions) {
-#     List<Integer> ans = new ArrayList<>();
-#     UnionFind uf = new UnionFind(m * n);
-#
-#     for (int[] pos : positions) {
-#       int r = pos[0], c = pos[1];
-#       List<Integer> overlap = new ArrayList<>();
-#
-#       if (r - 1 >= 0 && uf.isValid((r-1) * n + c)) overlap.add((r-1) * n + c);
-#       if (r + 1 < m && uf.isValid((r+1) * n + c)) overlap.add((r+1) * n + c);
-#       if (c - 1 >= 0 && uf.isValid(r * n + c - 1)) overlap.add(r * n + c - 1);
-#       if (c + 1 < n && uf.isValid(r * n + c + 1)) overlap.add(r * n + c + 1);
-#
-#       int index = r * n + c;
-#       uf.setParent(index);
-#       for (int i : overlap) uf.union(i, index);
-#       ans.add(uf.getCount());
-#     }
-#
-#     return ans;
-#   }
-# }
+#Reuse the code for Problem 200: Number of Islands,
+#for each addLand operation, just call the numIslands function of Problem 200
+#to get the number of islands after performing that operation.
+#Time Limit Exceeded
+
+#Union Find
+"""
+Make use of a Union Find data structure of size m*n to store all the nodes in the graph
+and initially each node's parent value is set to -1 to represent an empty graph.
+Our goal is to update Union Find with lands added by addLand operation and union lands belong to the same island.
+Time O(mn+L)
+s:O(mn)
+"""
+class Solution(object):
+    def numIslands2(self, m, n, positions):
+        """
+        :type m: int
+        :type n: int
+        :type positions: List[List[int]]
+        :rtype: List[int]
+        """
+        dirs = [(0,1),(1,0),(-1,0),(0,-1)]
+        res = []
+        if m<=0 or n <= 0 :
+            return res
+        count  = 0
+        parent = [-1]*(m*n)
+        for x,y in positions:
+            root = n * x + y #assume new point isolated, increse count
+            parent[root] = root
+            count += 1
+
+            for i,j in dirs:
+                x_ = x + i
+                y_ = y + j
+                neighbour = n * x_ + y_
+                if x_ < 0 or x_ >= m or y_ < 0 or y_ >= n or parent[neighbour] == -1:
+                    continue
+                parent_neighbour = self.find(parent,neighbour)
+                if root != parent_neighbour: #if neighbour in another island merge
+                    parent[root] = parent_neighbour
+                    root = parent_neighbour
+                    count -= 1
+            res.append(count)
+        return res
+
+    def find(self, parent, id):
+        while (id != parent[id]):
+            parent[id] = parent[parent[id]]  # Path Compression
+            id = parent[id];
+        return id
+
+s = Solution()
+print s.numIslands2(3,3,[[0,0],[0,1],[1,2],[2,1]])

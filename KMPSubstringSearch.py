@@ -2,6 +2,8 @@
 Do Pattern matching using KMP Search.
 T: O(m+n) where m is length text and n is length pattern.
 S: O(n)
+
+The purpose of the lookup table is to store the length of the proper prefix of the string that is also a suffix of the string.
 """
 class SubstringSearch:
 
@@ -38,13 +40,15 @@ class SubstringSearch:
                     j = lps[j-1]
                 else:
                     i += 1
-
-        if j == n:
-            return True
-        else:
-            return False
+        return j == n
 
 str = "abcxabcdabcdabcy"
-subString = "abcdabcy"
+subString = "aaacecaaa"
 ss = SubstringSearch()
+print ss.KMP(str,subString)
+subString = "abcdabca"
+print ss.KMP(str,subString)
+subString = "aabaabaaa"
+print ss.KMP(str,subString)
+subString = "abcdabcy"
 print ss.KMP(str,subString)

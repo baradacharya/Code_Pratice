@@ -16,16 +16,12 @@ class Solution(object):
         for k in graph:
             for i in graph[k]:
                 for j in graph[k]:
+                    if i == j: continue
                     graph[i][j] = graph[i][k] * graph[k][j]
         return [graph[x].get(y, -1.0) for x, y in queries]
 
 s = Solution()
 print s.calcEquation([ ["a","b"],["b","c"] ], [2.0,3.0],[ ["a","c"],["b","c"],["a","e"],["a","a"],["x","x"] ])
-#itertools.permutations
-# for k, i, j in itertools.permutations(graph, 3):
-#     if k in graph[i] and j in graph[k]:
-#         graph[i][j] = graph[i][k] * graph[k][j]
-# return [graph[num].get(den, -1.0) for num, den in queries]
 
 # Floyd–Warshall
 """

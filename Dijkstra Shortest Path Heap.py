@@ -1,4 +1,4 @@
-#undirected graph
+#undirected graph, greedy
 class Graph():
     def dijkstra(self, n, edges, src, dst):
         """
@@ -15,7 +15,6 @@ class Graph():
         for u,v,w in edges:
             graph[u][v] = w
             graph[v][u] = w
-
         visited = [False] * n
         best = {} #node: dist
         heap = [(0,src)] #dist,node
@@ -24,12 +23,11 @@ class Graph():
             dist,node = heapq.heappop(heap)
             if best.get(node,float('inf')) < dist : #alreday exists lower distance
                 continue
-
             visited[node] = True
             #check for all neighbouring unvisited nodes.
             for neighbours,wt in graph[node].iteritems():
                 newdist = dist + wt
-                if not visited[neighbours] and newdist < best.get(neighbours,float('inf')):
+                if  not visited[neighbours] and newdist < best.get(neighbours,float('inf')):
                     best[neighbours] = newdist
                     heapq.heappush(heap,(newdist,neighbours))
 

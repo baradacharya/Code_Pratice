@@ -16,7 +16,7 @@ class Solution(object):
         for i in range(1,len(s)):
             if s[i] == ')':
                 if s[i-1] == '(':
-                    dp[i] = (dp[i-2] if i > 2 else 0) + 2
+                    dp[i] = dp[i-2]  + 2
                 else:
                     if i-1- dp[i-1] >= 0  and s[i-1-dp[i-1]] == '(':
                         dp[i] = dp[i-1] + dp[i - 1 - dp[i-1] - 1] + 2 #substr end with dp[i-1], valid before dp[i-dp[i-1]-2]

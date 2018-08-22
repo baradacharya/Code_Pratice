@@ -32,48 +32,24 @@ class Solution(object):
     #
     #     return -1
 
-    #177s
-    def firstUniqChar(self, s):
+
+
+    def firstUniqChar(self, s):#104 ms
         """
         :type s: str
         :rtype: int
         """
         char_map = {}
+        repeated = set()
         for i, c in enumerate(s):
-            if c in char_map:
-                char_map[c].append(i)
+            if c not in char_map and c not in repeated:
+                char_map[c] = i
+            elif c not in char_map and c  in repeated:
+                continue
             else:
-                char_map[c] = list()
-                char_map[c].append(i)
-        low_index = len(s)
-        flag = False
-        #search over 26 characters
-        for c in char_map:
-            if len(char_map[c]) == 1:
-                flag = True
-                low_index = min(low_index, char_map[c][0])
-        return low_index if flag else -1
-
-    # def firstUniqChar(self, s):#198 ms
-    #     """
-    #     :type s: str
-    #     :rtype: int
-    #     """
-    #     char_map = {}
-    #     repeated = set()
-    #     index_list  = set()
-    #     for i, c in enumerate(s):
-    #         if c not in char_map and c not in repeated:
-    #             char_map[c] = i
-    #             index_list.add(i)
-    #         elif c not in char_map and c  in repeated:
-    #             continue
-    #         else:
-    #             repeated.add(c)
-    #             index_list.remove(char_map[c])
-    #             char_map.pop(c)
-    #
-    #     return min(index_list) if len(index_list) > 0 else -1
+                repeated.add(c)
+                char_map.pop(c)
+        return min(char_map.values()) if len(char_map) > 0 else -1
 
 
 s = Solution()

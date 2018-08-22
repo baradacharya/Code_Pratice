@@ -39,18 +39,19 @@ class Solution(object):
         :type dict: List[str]
         :rtype: str
         """
-        status = [False] * len(s)
+        n = len(s)
+        status = [False] * n
         final = ""
 
         for word in dict:
             start = s.find(word)
-            last = len(word)
-            while start != -1:
-                for i in range(start, start + last):
+            wordLen = len(word)
+            while start != -1:  # search the word multiple times
+                for i in range(start, start + wordLen):
                     status[i] = True
                 start = s.find(word, start + 1)
         i = 0
-        while i < len(s):
+        while i < n:
             if status[i]:
                 final += "<b>"
                 while i < len(s) and status[i]:

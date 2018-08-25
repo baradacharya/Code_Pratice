@@ -17,8 +17,7 @@ class Solution(object):
                 if rooms[i][j] == GATE:
                     queue.append((i,j))
         while queue:
-            point = queue.pop(0)
-            x,y = point[0],point[1]
+            x,y = queue.pop(0)
             for dir in DIRECTIONS:
                 x_ = x + dir[0]
                 y_ = y + dir[1]

@@ -30,22 +30,23 @@ class WordDictionary(object):
         :type word: str
         :rtype: bool
         """
-        cur = self.root
+        trie = self.root
         self.res = False
-        self.DFS(cur, word)
+        self.DFS(trie, word)
         return self.res
 
-    def DFS(self, node, word):
+    def DFS(self, trie, word):
         if not word:
-            if node.isEnd:
+            if trie.isEnd:
                 self.res = True
             return
-        if word[0] == ".":
-            for c in node.children:
-                self.DFS(node.children[c],word[1:])
+        ch = word[0]
+        if ch == ".":
+            for c in trie.children:
+                self.DFS(trie.children[c], word[1:])
         else:
-            if word[0] in node.children:
-                self.DFS(node.children[word[0]],word[1:])
+            if ch in trie.children:
+                self.DFS(trie.children[ch], word[1:])
             return
 
 # Your WordDictionary object will be instantiated and called as such:

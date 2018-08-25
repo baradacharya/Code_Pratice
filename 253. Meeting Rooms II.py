@@ -11,16 +11,16 @@ class Solution(object):
         :type intervals: List[Interval]
         :rtype: int
         """
-        import heapq
-        intervals.sort(key = lambda l :l.start)
+        intervals.sort(key = lambda l : l.start)
         heap = [] # stores the end time of intervals
+        from heapq import *
         for interval in intervals:
             #compare with minnimum end time of heap
-            if heap and heap[0] <= interval.start: # means two intervals can use the same room
-                heapq.heapreplace(heap,interval.end) #update the end time of that room
+            if heap and heap[0] <= interval.start:# means two intervals can use the same room
+                heapreplace(heap,interval.end) #update the end time of that room
                 #heapreplace is heappop followed by heappush
             else:# a new room is allocated
-                heapq.heappush(heap,interval.end)
+                heappush(heap,interval.end)
         return len(heap)
 
 s = Solution()

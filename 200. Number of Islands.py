@@ -29,7 +29,7 @@ class Solution(object):
         self.DFS(grid, i, j + 1)
         self.DFS(grid, i, j - 1)
 
-#99% beat
+#99% beat, stack better than recursion
 class Solution(object):
     def numIslands(self, grid):
         """

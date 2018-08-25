@@ -3,8 +3,8 @@
 #cumlative sum,num_time
 #https://leetcode.com/problems/subarray-sum-equals-k/solution/
 """
-if the cumulative sum upto two indices, say ii and jj is at a difference of kk i.e. if sum[i] - sum[j] = k
-the sum of elements lying between indices ii and jj is kk.
+if the cumulative sum upto two indices, say i and j is at a difference of k i.e. if sum[i] - sum[j] = k
+the sum of elements lying between indices i and j is k.
 """
 class Solution(object):
     def subarraySum(self, nums, k):

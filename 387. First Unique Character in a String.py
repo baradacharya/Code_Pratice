@@ -39,17 +39,25 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        char_map = {}
-        repeated = set()
-        for i, c in enumerate(s):
-            if c not in char_map and c not in repeated:
-                char_map[c] = i
-            elif c not in char_map and c  in repeated:
-                continue
-            else:
-                repeated.add(c)
-                char_map.pop(c)
-        return min(char_map.values()) if len(char_map) > 0 else -1
+        # char_map = {}
+        # repeated = set()
+        # for i, c in enumerate(s):
+        #     if c not in char_map and c not in repeated:
+        #         char_map[c] = i
+        #     elif c not in char_map and c  in repeated:
+        #         continue
+        #     else:
+        #         repeated.add(c)
+        #         char_map.pop(c)
+        # return min(char_map.values()) if len(char_map) > 0 else -1
+
+        letter = "abcdefghijklmnopqrstuvwxyz"
+        index = []
+        for l in letter:
+            if s.count(l) == 1:
+                index.append(s.index(l))
+
+        return min(index) if index else -1
 
 
 s = Solution()

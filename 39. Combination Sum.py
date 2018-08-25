@@ -16,6 +16,7 @@ class Solution(object):
         return res
 
     def DFS(self,candidates,target,start,res,path):
+        print path
         if target < 0 :
             return
         if target == 0:

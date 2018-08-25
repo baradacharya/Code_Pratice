@@ -9,15 +9,14 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
-        #either DFS or backtrack can use
-        self.DFS(sorted(nums),0,[],res)
-        # self.Backtrack(nums, 0, [], res)
+        # nums.sort()
+        self.DFS(nums, 0, [], res)
         return res
-    def DFS(self,nums,index,path,res):
+
+    def DFS(self, nums, start, path, res):
         res.append(path)
-        for i in range(index,len(nums)):
-            self.DFS(nums,i+1,path+[nums[i]],res)
-            #kind of backtracking by this step path+[nums[i]], will remove automatically
+        for i in range(start, len(nums)):
+            self.DFS(nums, i + 1, path + [nums[i]], res)
 
 
 s = Solution()

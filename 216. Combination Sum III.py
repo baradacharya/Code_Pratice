@@ -1,10 +1,10 @@
 #Each number in candidates may only be used once in the combination.
 #39
 class Solution(object):
-    def combinationSum(self, k, n):
+    def combinationSum3(self, k, n):
         """
-        :type candidates: List[int]
-        :type target: int
+        :type k: int
+        :type n: int
         :rtype: List[List[int]]
         """
         res = []
@@ -13,6 +13,8 @@ class Solution(object):
 
     def DFS(self, k, target, start, res, path):
         if len(path) > k:
+            return
+        elif len(path) == k and target < 0:
             return
         elif len(path) == k and target == 0:
             res.append(path)

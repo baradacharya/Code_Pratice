@@ -31,3 +31,26 @@ class Solution(object):
 
 s = Solution()
 print s.permuteUnique([1,1,2])
+
+"""
+class Solution(object):
+    def permuteUnique(self, nums):
+
+        # :type nums: List[int]
+        # :rtype: List[List[int]]
+
+        res = set()
+        used = [False] * len(nums)
+        self.DFS(nums,[],res,used)
+        return list(res)
+    
+    def DFS(self,nums,path,res,used):
+        if len(path) == len(nums):
+            res.add(tuple(path))
+        for i in range(len(nums)):
+            if used[i] :
+                continue
+            used[i] = True
+            self.DFS(nums,path +[nums[i]],res,used)
+            used[i] = False
+"""

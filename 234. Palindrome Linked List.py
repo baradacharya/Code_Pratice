@@ -21,7 +21,7 @@ class Solution(object):
             slow.next,prev,slow = prev,slow,next_node
         #3.compare the first and second half nodes
         node  = prev
-        while node and head:
+        while node:
             if node.val != head.val:
                 return False
             node,head = node.next,head.next

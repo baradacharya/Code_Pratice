@@ -8,6 +8,7 @@ class MovingAverage(object):
         self.queue = collections.deque()
         self.sum = 0
         self.size = size
+        self.l = len(self.queue)
 
     def next(self, val):
         """
@@ -16,11 +17,11 @@ class MovingAverage(object):
         """
         self.queue.append(val)
         self.sum += val
-        l = len(self.queue)
-        if l > self.size:
+        self.l += 1
+        if self.l > self.size:
             self.sum -= self.queue.popleft()
-            l -= 1
-        return self.sum * 1.0 /l
+            self.l -= 1
+        return self.sum * 1.0 / self.l
 
 # Your MovingAverage object will be instantiated and called as such:
 obj = MovingAverage(3)

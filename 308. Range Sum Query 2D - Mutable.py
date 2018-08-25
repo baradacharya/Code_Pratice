@@ -19,7 +19,7 @@ class NumMatrix(object):
         """
         #1.find the original value of that point
         original = self.matrix[row][col]
-        if col != 0:
+        if col > 0:
             original -= self.matrix[row][col - 1]
         #2. get the difference value from old and new
         diff = original - val
@@ -40,7 +40,7 @@ class NumMatrix(object):
         sum = 0
         for row in xrange(row1, row2 + 1):
             sum += self.matrix[row][col2]
-            if col1 != 0:
+            if col1 > 0:
                 sum -= self.matrix[row][col1 - 1]
         return sum
 

@@ -18,3 +18,5 @@ class Solution(object):
 s = Solution()
 q = s.twoSum([2, 7, 11, 15],9)
 print q
+#T: O(n)
+#if sorted less by using two pointer

@@ -8,6 +8,7 @@ class Solution(object):
         # return ss.find(s) != -1
 
         prefix = self.kmp(s)
+        print prefix
         n = len(s);
         length = prefix[n - 1]
         return (length > 0 and n % (n - length) == 0)

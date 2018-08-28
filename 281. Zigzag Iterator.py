@@ -3,7 +3,8 @@ import itertools
 class ZigzagIterator(object):
     def __init__(self, v1, v2):
         def vals():
-            for i in itertools.count():#counter
+            # for i in itertools.count():#counter
+            for i in range(max(len(v1),len(v2))):
                 for v in v1, v2:
                     if i < len(v):#if counter less than length of list
                         yield v[i]

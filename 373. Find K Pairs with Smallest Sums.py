@@ -2,6 +2,7 @@
 #2. Do the following operations k-1 times :
 #pop out the Top Element in Heap,
 #replace the top with the next element from the diff array.
+#T:O(klogk)
 class Solution(object):
     def kSmallestPairs(self, nums1, nums2, k):
         """
@@ -15,14 +16,14 @@ class Solution(object):
         import heapq
         heap = []
         res = []
-        for i in range(m):
-            heapq.heappush(heap, (nums1[i] + nums2[0],i, 0))
-        for count in range(min(k,m*n)):
+        for i in range(m):#O(n)
+            # heapq.heappush(heap, (nums1[i] + nums2[0],i, 0))
+            heap.append((nums1[i] + nums2[0], i, 0)) #since already sorted
+        for count in range(min(k,m*n)):#KlogK
             sum,i,j = heapq.heappop(heap)
             res.append((nums1[i],nums2[j]))
-            if j == n - 1:
-                continue
-            heapq.heappush(heap,(nums1[i]+nums2[j+1],i,j+1))
+            if j < n - 1:
+                heapq.heappush(heap,(nums1[i]+nums2[j+1],i,j+1))
         return res
 s = Solution()
 print s.kSmallestPairs([1,2,4],[-1,1,2],100)

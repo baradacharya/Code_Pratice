@@ -32,7 +32,7 @@ we only need a consistent way to access the median elements.
 Keeping the entire input sorted is not a requirement.
 A max-heap to store the smaller half of the input numbers
 A min-heap to store the larger half of the input numbers
-T: O(log n)
+T: O(log n) insert O(log n) median O(1), space : O(n)
 """
 class MedianFinder(object):
     def __init__(self):

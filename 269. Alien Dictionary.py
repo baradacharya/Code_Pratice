@@ -26,10 +26,9 @@ class Solution(object):
         res = []
         # 2. perform DFS to check topological dependancy and assign sequence
         for c in visited:
-            if not visited[c]:
-                if not self.DFS(graph, c, visited, res):
-                    possible = False
-                    break
+            if not self.DFS(graph, c, visited, res):
+                possible = False
+                break
         if possible == True:
             res.reverse()
             return ''.join(res)

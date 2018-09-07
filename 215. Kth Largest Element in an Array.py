@@ -1,5 +1,7 @@
+#O(N lg N) running time + O(1) memory
+#https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
 class Solution(object):
-    #T:O(logn) S:O(n)
+    #T:O(logn) S:O(k)
     def findKthLargest(self, nums, k):#best time
         """
         :type nums: List[int]
@@ -7,13 +9,13 @@ class Solution(object):
         :rtype: int
         """
         if not nums: return 0
-        import heapq
+        from heapq import *
+        heap = []
         for i in range(len(nums)):
-            nums[i] = -1 * nums[i] #because this is a minheap
-        heapq.heapify(nums)
-        for i in range(k):
-            t = heapq.heappop(nums)
-        return -1 * t
+            heappush(heap,nums[i])
+            if len(heap) > k:
+                heappop(heap)
+        return heap[0]
 
     # #T:O(logk) S:O(logk)
     # def findKthLargest(self, nums, k):  # better time, best space
@@ -41,5 +43,18 @@ class Solution(object):
     #         t = heapq.heappop(nums)
     #     return t
 
-s = Solution()
-print s.findKthLargest([3,2,1,5,6,4],k = 2)
+
+# O(n) time, quick sort
+class Solution:
+    # @param {integer[]} nums
+    def findKthLargest(self, nums, k):
+        pivot = nums[len(nums)//2]
+        left  = [l for l in nums if l < pivot]
+        equal = [e for e in nums if e == pivot]
+        right = [r for r in nums if r > pivot]#larger half
+        if k <= len(right):#if k in larger half
+            return self.findKthLargest(right, k)
+        elif (k - len(right)) <= len(equal):#if k  in equal
+            return equal[0]#any number from equal
+        else:
+            return self.findKthLargest(left, k - len(right) - len(equal))

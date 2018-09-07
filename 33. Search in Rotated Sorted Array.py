@@ -1,3 +1,5 @@
+#trick in binary search if l = m+1 and r = m - 1, then l <= r
+#if l = m+ 1 r = m or l = m and r = m - 1 then l < r
 class Solution(object):
     def search(self, nums, target):
         """

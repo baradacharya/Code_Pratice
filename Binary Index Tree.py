@@ -40,8 +40,8 @@ if __name__ == '__main__':
     array = [1, 7, 3, 0, 5, 8, 3, 2, 6, 2, 1, 1, 4, 5]
     bit = BIT(array)
     print('Array: [{}]'.format(', '.join(map(str, array))))
-    print()
 
+    print bit.array
     print('Prefix sum of first {} elements: {}'.format(13, bit.prefix_query(12)))
     print('Prefix sum of first {} elements: {}'.format(7, bit.prefix_query(6)))
     print('Range sum from pos {} to pos {}: {}'.format(1, 5, bit.range_query(1, 5)))

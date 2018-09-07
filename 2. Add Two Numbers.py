@@ -17,21 +17,25 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        dummyhead = ListNode(0)
-        p,q = l1,l2
-        cur = dummyhead
+        if not l1 and not l2: return 0
+        if not l1: return l2
+        if not l2: return l1
         carry = 0
-        while p or q:
-            if p: x = p.val
-            else: x = 0
-            if q : y = q.val
-            else: y = 0
+        cur = head = ListNode(0)
+        while l1 or l2 or carry:
+            if l1:
+                x = l1.val
+                l1 = l1.next
+            else:
+                x = 0
+            if l2:
+                y = l2.val
+                l2 = l2.next
+            else:
+                y = 0
             sum = x + y + carry
-            carry = sum/10
-            cur.next = ListNode(sum%10)
+            cur.next = ListNode(sum % 10)
+            carry = sum / 10
             cur = cur.next
-            if p: p = p.next
-            if q: q = q.next
-        if carry > 0:
-            cur.next = ListNode(carry)
-        return dummyhead.next
+
+        return head.next

@@ -58,7 +58,6 @@ class Solution(object):
                         if x > 0 and grid[x - 1][y] == '1':
                             stack.append((x - 1, y))
                             grid[x - 1][y] = 0
-
                         if y > 0 and grid[x][y - 1] == '1':
                             stack.append((x, y - 1))
                             grid[x][y - 1] = 0

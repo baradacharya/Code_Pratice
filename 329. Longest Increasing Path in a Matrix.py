@@ -1,4 +1,5 @@
-#DP + DFS
+#DP(memorization) + DFS
+#T: : O(mn)
 class Solution(object):
     def longestIncreasingPath(self, matrix):
         """

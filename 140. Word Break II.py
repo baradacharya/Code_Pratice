@@ -21,3 +21,5 @@ class Solution(object):
                     res.append(w)
         memory[s] = res #add answ for a string to mem to avoid recalculation(Dic of Lists)
         return res
+s = Solution()
+print s.wordBreak("catsanddog",["cat","cats","and","sand","dog"])

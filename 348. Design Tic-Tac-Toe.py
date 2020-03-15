@@ -5,8 +5,11 @@ class TicTacToe(object):
         Initialize your data structure here.
         :type n: int
         """
-        self.count = collections.Counter()
-        self.n =n
+        self.rows = [0] * n
+        self.cols = [0] * n
+        self.diagonal = 0
+        self.antidiagonal = 0
+        self.size = n
 
     def move(self, row, col, player):
         """
@@ -23,10 +26,20 @@ class TicTacToe(object):
         :type player: int
         :rtype: int
         """
-        for i, x in enumerate((row, col, row+col, row-col)):
-                self.count[i, x, player] += 1
-                if self.count[i, x, player] == self.n:
-                    return player
+        toAdd = 1 if player == 1 else -1
+        self.rows[row] += toAdd
+        self.cols[col] += toAdd
+
+        if row == col:
+            self.diagonal += toAdd
+
+        if col == self.size - row -1:
+            self.antidiagonal += toAdd
+
+        if abs(self.rows[row]) == self.size or abs(self.cols[col]) == self.size \
+                or abs(self.diagonal) == self.size or abs(self.antidiagonal) == self.size:
+            return player
+
         return 0
 
 # Your TicTacToe object will be instantiated and called as such:
